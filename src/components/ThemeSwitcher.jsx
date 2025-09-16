@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const ThemeSwitcher = () => {
+    const { theme, setTheme } = useTheme();
+
     const [open, setOpen] = useState(false);
     const [activeTheme, setActiveTheme] = useState("yellow"); // default theme
 
@@ -10,6 +13,7 @@ const ThemeSwitcher = () => {
             themeLink.setAttribute("href", `${process.env.PUBLIC_URL}/styles/style_${theme}.css`);
         }
         setActiveTheme(theme);
+        setTheme(theme);
         setOpen(false);
     };
 

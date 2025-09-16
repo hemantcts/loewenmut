@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
+    const { theme } = useTheme(); 
+
+    const [curretTheme, setCurrentTheme] = useState('yellow');
+
+    // useEffect(() => {
+    //     setCurrentTheme(theme);
+    // }, [theme]);
+
     const data = [
         "1", "2", "3", "4", "5"
     ]
@@ -47,7 +56,8 @@ const Home = () => {
             <section className='banner_sec main_banner wi_full'>
                 <div className='container' data-aos='fade-up'>
                     <div className='banner_data'>
-                        <img src='./images/home-banner.png' alt='#' className='w-100' />
+                        {/* <img src='./images/home-banner.png' alt='#' className='w-100' /> */}
+                        <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100' />
                     </div>
                     <div className='btn_block btn_grid'>
                         <Link to="" className='button theme_btn'>

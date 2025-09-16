@@ -23,14 +23,14 @@ import VielenDank from "./pages/VielenDank";
 
 function App() {
   useEffect(() => {
-          AOS.init({
-              duration: 1500,
-              once: true,
-              disable: function () {
-                  return window.innerWidth < 1200;
-              },
-          });
-      }, []);
+    AOS.init({
+      duration: 1500,
+      once: true,
+      disable: function () {
+        return window.innerWidth < 1200;
+      },
+    });
+  }, []);
 
   return (
     <Router>
