@@ -31,11 +31,11 @@ return (
                     <div className='ftr_quick_links'>
                         <h3>Quick Links</h3>
                         <div className='quck_links'>
-                            <Link to={'/'}>Unser Angebot</Link> 
-                            <Link to={'/'}>Kompetenzen</Link> 
-                            <Link to={'/'}>Agentur</Link> 
-                            <Link to={'/'}>Referenzen</Link> 
-                            <Link to={'/'}>Kontakt</Link>
+                            <Link to={'/angebot'}>Unser Angebot</Link> 
+                            <Link to={'/kompetenzen'}>Kompetenzen</Link> 
+                            <Link to={'/ueber-uns'}>Agentur</Link> 
+                            <Link to={'/referenzen'}>Referenzen</Link> 
+                            <Link to={'/kontakt'}>Kontakt</Link>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ return (
             <div className='footer_copyright'>
                 <div className='copyright_flex'>
                     <p>© 2006 - 2025 Loewenmut.</p>
-                    <p><Link to={'/'}>Impressum</Link> | <Link to={'/'}>Datenschutzerklärung</Link></p>
+                    <p><Link to={'/impressum'}>Impressum</Link> | <Link to={'/datenschtuz'}>Datenschutzerklärung</Link></p>
                 </div>
             </div>
         </div>

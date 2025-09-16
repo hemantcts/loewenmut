@@ -60,14 +60,14 @@ const Home = () => {
                         <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100' />
                     </div>
                     <div className='btn_block btn_grid'>
-                        <Link to="" className='button theme_btn'>
+                        <Link to="/angebot" className='button theme_btn'>
                             Unser Angebot
                             <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
                                 <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
                             </svg>
                         </Link>
-                        <Link to="" className='button dark_btn'>
+                        <Link to="/kontakt" className='button dark_btn'>
                             Kontakt
                             <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
@@ -79,7 +79,7 @@ const Home = () => {
             </section>
             <section className='wi_full py_3 info_sec bg_theme'>
                 <div className='container'>
-                    <h2 data-aos='fade-up'>Gestalten Sie mit <Link to=""><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2>
+                    <h2 data-aos='fade-up'>Gestalten Sie mit <Link to="/"><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2>
                 </div>
             </section>
             <section className='wi_full py_3 approach_sec' data-aos='zoom-in'>

@@ -20,6 +20,8 @@ import Kontakt from "./pages/Kontakt";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import VielenDank from "./pages/VielenDank";
+import ScrollToTop from "./components/ScrollToTop";
+import Error from "./pages/Error";
 
 function App() {
   useEffect(() => {
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         {/* Navigation */}
         <Navbar />
@@ -54,6 +57,7 @@ function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschtuz" element={<Datenschutz />} />
           <Route path="/vielen-dank" element={<VielenDank />} />
+          <Route path="*" element={<Error />} />
         </Routes>
 
         <Footer />
