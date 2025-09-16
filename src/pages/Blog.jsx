@@ -38,7 +38,7 @@ const Blog = () => {
                     <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos='fade-up'>
                         <div className='tab-pane fade show active' id='tab1' role='tabpanel' aria-labelledby='tab_1'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-maliqinelli.png' className='w-100' alt='#' />
@@ -50,7 +50,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-gebruder.png' className='w-100' alt='#' />
@@ -62,7 +62,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-mineex.png' className='w-100' alt='#' />
@@ -74,7 +74,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -86,7 +86,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -98,7 +98,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />
@@ -123,7 +123,7 @@ const Blog = () => {
                         </div>
                         <div className='tab-pane fade' id='tab2' role='tabpanel' aria-labelledby='tab_2'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -135,7 +135,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -147,7 +147,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />
@@ -172,7 +172,7 @@ const Blog = () => {
                         </div>
                         <div className='tab-pane fade' id='tab3' role='tabpanel' aria-labelledby='tab_3'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-maliqinelli.png' className='w-100' alt='#' />
@@ -184,7 +184,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-gebruder.png' className='w-100' alt='#' />
@@ -196,7 +196,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-mineex.png' className='w-100' alt='#' />
@@ -221,7 +221,7 @@ const Blog = () => {
                         </div>
                         <div className='tab-pane fade' id='tab4' role='tabpanel' aria-labelledby='tab_4'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -233,7 +233,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -245,7 +245,7 @@ const Blog = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />

@@ -14,6 +14,11 @@
             padding: 0 var(--content_padding_small);
         }
     }
+    .ang_kontakt_sec {
+        .sec_max_width {
+            padding-right: calc(var(--content_padding_small) + 330px);
+        }
+    }
 }
 
 @media (max-width: 1680px) {
@@ -23,6 +28,12 @@
         --content_width_smaller: 730px;
         --content_padding_large: 125px;
         --content_padding_small: 75px;
+    }
+    .select-search {
+        select.selct_custom, input.srch--field {
+            height: 50px;
+            width: 180px;
+        }
     }
 }
 
@@ -65,13 +76,13 @@
 		}
 	}
     .button {
-        padding: 18px 28px;
+        padding: 18px;
     }
     .theme_btn, .dark_btn, .border_btn, .text_btn {
-        padding-right: 110px;
+        padding-right: 100px;
         svg {
-            width: 60px;
-            height: 22px;
+            width: 55px;
+            height: 20px;
             margin-left: 15px;
         }
     }
@@ -121,11 +132,6 @@
     .common_kompet_sec {
         .icon_right {
             top: -180px;
-        }
-    }
-    .ang_kontakt_sec {
-        .sec_max_width {
-            padding-right: calc(var(--content_padding_small) + 330px);
         }
     }
     footer {
@@ -244,6 +250,11 @@
             }
         }
     }
+    ul.nav-tabs {
+        .nav-link {
+            font-size: var(--bs-fs30);
+        }
+    }
 }
 
 @media (min-width: 2250px) { 
@@ -349,7 +360,7 @@
     .kontakt_sec {
         .form_col {
             .form_btn {
-                text-align: left;
+                text-align: right;
             }
         }
     }
@@ -393,7 +404,7 @@
         margin-top: 1rem;
     }
     .banner_sec, .inner_banner, .single_referenzen_sec, .error_thank_sec, .single_blog_sec {
-        padding-top: 110px;
+        padding-top: 130px;
         padding-bottom: 40px;
     }
     header {
@@ -429,6 +440,15 @@
         .ftr_swiss {
             &:before {
                 left: 47%;
+            }
+        }
+    }
+    .common_kompet_sec {
+        .icon_right {
+            right: 20px;
+            top: -100px;
+            svg {
+                width: 100px;
             }
         }
     }
@@ -471,6 +491,21 @@
             }
         }
     }
+    .single_baner_data {
+        .angebot_icon {
+            width: 100%;
+            text-align: center;
+            svg {
+                width: 180px;
+                height: auto;
+            }
+        }
+    }
+    .uber_uns_sec {
+        .max_sec {
+            padding: 0;
+        }
+    }
 }
 
 @media (max-width: 767px) { 
@@ -482,7 +517,7 @@
         margin-top: 30px;
     }
     .banner_sec, .inner_banner, .single_referenzen_sec, .error_thank_sec, .single_blog_sec {
-        padding-top: 100px;
+        padding-top: 130px;
         padding-bottom: 30px;
     }
     header {
@@ -511,6 +546,29 @@
         .form_col {
             .grey_bg {
                 padding: 1.5rem;
+            }
+        }
+    }
+    .common_kompet_count {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .icon_right {
+            top: -100px;
+            svg {
+                width: 70px;
+                height: 55px;
+            }
+        }
+    }
+    .common_angebot_sec {
+        .sec_heading {
+            .icon_right {
+                width: 100%;
+                text-align: left;
+                svg {
+                    width: 130px;
+                    height: 120px;
+                }
             }
         }
     }
@@ -545,6 +603,12 @@
             align-items: center;
         }
     }
+    ul.nav-tabs {
+        .nav-link {
+            font-size: 16px;
+            padding: 8px;
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -559,12 +623,24 @@
             padding-left: calc(var(--bs-gutter-x) * .5);
             padding-right: calc(var(--bs-gutter-x) * .5);
         }
+        .navbar-brand {
+            svg {
+                width: 60px;
+            }
+        }
         #mainNavbar {
             &.collapse .menu_container {
                 --bs-gutter-x: 1.5rem;
                 padding-left: calc(var(--bs-gutter-x) * .5);
                 padding-right: calc(var(--bs-gutter-x) * .5);
             }
+        }
+    }
+    .select-search {
+        flex-direction: column;
+        width: 100%;
+        select.selct_custom, input.srch--field {
+            width: 100%;
         }
     }
 }

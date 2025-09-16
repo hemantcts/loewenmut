@@ -13,27 +13,43 @@ const Referenzen = () => {
             </section>
             <section className='wi_full referenzen_sec'>
                 <div className='container'>
-                    <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos='zoom-in'>
-                        <li className='nav-item' role='presentation'>
-                            <button className='nav-link active' id='tab_1' data-bs-toggle='tab' data-bs-target='#tab1' type='button' role='tab'>Alle</button>
-                        </li>
-                        <li className='nav-item' role='presentation'>
-                            <button className='nav-link' id='tab_2' data-bs-toggle='tab' data-bs-target='#tab2' type='button' role='tab'>Branding</button>
-                        </li>
-                        <li className='nav-item' role='presentation'>
-                            <button className='nav-link' id='tab_3' data-bs-toggle='tab' data-bs-target='#tab3' type='button' role='tab'>Online / Website</button>
-                        </li>
-                        <li className='nav-item' role='presentation'>
-                            <button className='nav-link' id='tab_4' data-bs-toggle='tab' data-bs-target='#tab4' type='button' role='tab'>Print</button>
-                        </li>
-                        <li className='nav-item' role='presentation'>
-                            <button className='nav-link' id='tab_5' data-bs-toggle='tab' data-bs-target='#tab5' type='button' role='tab'>Content</button>
-                        </li>
-                    </ul>
+                    <div className='data_filters'>
+                        <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos='zoom-in'>
+                            <li className='nav-item' role='presentation'>
+                                <button className='nav-link active' id='tab_1' data-bs-toggle='tab' data-bs-target='#tab1' type='button' role='tab'>Alle</button>
+                            </li>
+                            <li className='nav-item' role='presentation'>
+                                <button className='nav-link' id='tab_2' data-bs-toggle='tab' data-bs-target='#tab2' type='button' role='tab'>Branding</button>
+                            </li>
+                            <li className='nav-item' role='presentation'>
+                                <button className='nav-link' id='tab_3' data-bs-toggle='tab' data-bs-target='#tab3' type='button' role='tab'>Online / Website</button>
+                            </li>
+                            <li className='nav-item' role='presentation'>
+                                <button className='nav-link' id='tab_4' data-bs-toggle='tab' data-bs-target='#tab4' type='button' role='tab'>Print</button>
+                            </li>
+                            <li className='nav-item' role='presentation'>
+                                <button className='nav-link' id='tab_5' data-bs-toggle='tab' data-bs-target='#tab5' type='button' role='tab'>Content</button>
+                            </li>
+                        </ul>
+                        <div className='select-search'>
+                            <fieldset className='col--branch'>
+                                <select class="selct_custom" name="so_branch">
+                                    <option value="">Alle</option>
+                                    <option value="Gesundheit und Pflege">Gesundheit und Pflege</option>
+                                    <option value="Immobilien und Bauwesen">Immobilien und Bauwesen</option>
+                                    <option value="Marke und Unternehmen">Marke und Unternehmen</option>
+                                    <option value="Verbände und Öffentliche Hand">Verbände und Öffentliche Hand</option>
+                                </select>
+                            </fieldset>
+                            <fieldset className='col--search'>
+                                <input type='text' name='so_search' maxlength="50" className='srch--field' placeholder='Suchbegriff' />
+                            </fieldset>
+                        </div>
+                    </div>
                     <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos='fade-up'>
                         <div className='tab-pane fade show active' id='tab1' role='tabpanel' aria-labelledby='tab_1'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-maliqinelli.png' className='w-100' alt='#' />
@@ -45,7 +61,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-gebruder.png' className='w-100' alt='#' />
@@ -57,7 +73,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-mineex.png' className='w-100' alt='#' />
@@ -69,7 +85,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -81,7 +97,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -93,7 +109,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />
@@ -118,7 +134,7 @@ const Referenzen = () => {
                         </div>
                         <div className='tab-pane fade' id='tab2' role='tabpanel' aria-labelledby='tab_2'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -130,7 +146,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -142,7 +158,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />
@@ -167,7 +183,7 @@ const Referenzen = () => {
                         </div>
                         <div className='tab-pane fade' id='tab3' role='tabpanel' aria-labelledby='tab_3'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-maliqinelli.png' className='w-100' alt='#' />
@@ -179,7 +195,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-gebruder.png' className='w-100' alt='#' />
@@ -191,7 +207,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-mineex.png' className='w-100' alt='#' />
@@ -216,7 +232,7 @@ const Referenzen = () => {
                         </div>
                         <div className='tab-pane fade' id='tab4' role='tabpanel' aria-labelledby='tab_4'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-qhs.png' className='w-100' alt='#' />
@@ -228,7 +244,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-schaer.png' className='w-100' alt='#' />
@@ -240,7 +256,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-zurich.png' className='w-100' alt='#' />
@@ -265,7 +281,7 @@ const Referenzen = () => {
                         </div>
                         <div className='tab-pane fade' id='tab5' role='tabpanel' aria-labelledby='tab_5'>
                             <div className='row align-items-center'>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-maliqinelli.png' className='w-100' alt='#' />
@@ -277,7 +293,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-gebruder.png' className='w-100' alt='#' />
@@ -289,7 +305,7 @@ const Referenzen = () => {
                                         </div>
                                     </Link>
                                 </div>
-                                <div className='col-sm-6 col-lg-4 post_item'>
+                                <div className='col-6 col-lg-4 post_item'>
                                     <Link to={'/'} className='post_inner'>
                                         <picture>
                                             <img src='./images/blog-mineex.png' className='w-100' alt='#' />
