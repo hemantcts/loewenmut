@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ScrollProgressBar = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -14,6 +15,12 @@ const ScrollProgressBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setScrollWidth(0);
+  }, [pathname]);
 
   return (
     <div

@@ -50,7 +50,8 @@ const Navbar = () => {
                                     <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                                 </li> */}
                                 <li className="nav-item dropdown">
-                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "angebot" ? "show" : ""}`} to="/angebot" onClick={(e) => toggleDropdown("angebot", e)}>Unser Angebot</Link>
+                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "angebot" ? "show" : ""}`} to="/angebot">Unser Angebot</Link>
+                                    {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "angebot" ? "show" : ""}`} to="/angebot" onClick={(e) => toggleDropdown("angebot", e)}>Unser Angebot</Link> */}
                                     <ul className={`dropdown-menu ${openDropdown === "angebot" ? "show" : ""}`}>
                                         <li><Link className="dropdown-item" to="/angebot-detail">Branding</Link></li>
                                         <li><Link className="dropdown-item" to="/angebot-detail">Online / Website</Link></li>
@@ -59,7 +60,8 @@ const Navbar = () => {
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen" onClick={(e) => toggleDropdown("kompetenzen", e)}> Kompetenzen </Link>
+                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen"> Kompetenzen </Link>
+                                    {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen" onClick={(e) => toggleDropdown("kompetenzen", e)}> Kompetenzen </Link> */}
                                     <ul className={`dropdown-menu ${openDropdown === "kompetenzen" ? "show" : ""}`}>
                                         <li><Link className="dropdown-item" to="/kompetenzen-detail">Marke & Design</Link></li>
                                         <li><Link className="dropdown-item" to="/kompetenzen-detail">Digital & Web</Link></li>

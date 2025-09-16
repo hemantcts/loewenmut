@@ -23,6 +23,7 @@ import VielenDank from "./pages/VielenDank";
 import ScrollToTop from "./components/ScrollToTop";
 import Error from "./pages/Error";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <ScrollProgressBar />
+      <CustomCursor />
       <div className="App">
         {/* Navigation */}
         <Navbar />

@@ -14,7 +14,7 @@ const Angebot = () => {
             </section>
             <section className='common_angebot_sec'>
                 <div className='wi_full py_3 common_angbot_count' id='branding'>
-                    <div className='container'>
+                    <div className='container position-relative'>
                         <div className='sec_heading'>
                             <div className='heading_left' data-aos='fade-up'>
                                 <h2>Branding</h2>
