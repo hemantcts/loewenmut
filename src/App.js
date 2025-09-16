@@ -22,6 +22,7 @@ import Datenschutz from "./pages/Datenschutz";
 import VielenDank from "./pages/VielenDank";
 import ScrollToTop from "./components/ScrollToTop";
 import Error from "./pages/Error";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ScrollProgressBar />
       <div className="App">
         {/* Navigation */}
         <Navbar />
