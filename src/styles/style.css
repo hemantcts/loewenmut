@@ -588,7 +588,7 @@ header {
             display: inline-block;
             font-size: var(--bs-fs70);
             font-family: var(--bs-stolzlbold);
-            color: var(--bs-darkgrey);
+            color: var(--bs-themetext);
             line-height: 1;
             padding: 0.5rem 0 !important;
             position: relative;
@@ -600,7 +600,7 @@ header {
                 bottom: 0;
                 width: 0;
                 height: 50%;
-                background-color: #fff;
+                background-color: var(--bs-underline);
                 z-index: -1;
                 transition: .4s all;
             }
@@ -628,7 +628,7 @@ header {
             display: inline-block;
             font-size: var(--bs-fs40);
             font-family: var(--bs-stolzlregular);
-            color: var(--bs-darkgrey);
+            color: var(--bs-themetext);
             padding: 0;
             background: transparent;
             position: relative;
@@ -639,7 +639,7 @@ header {
                 bottom: 8px;
                 width: 0;
                 height: 30%;
-                background-color: #fff;
+                background-color: var(--bs-underline);
                 z-index: -1;
                 transition: .4s all;
             }
@@ -724,7 +724,7 @@ header {
             z-index: 0;
             width: 0;
             height: 50%;
-            background-color: #fff;
+            background-color: var(--bs-underline);
             transition: .4s all;
         }
         &:hover:before {
@@ -1244,6 +1244,7 @@ footer {
         .item_profile {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
             padding: 0 30px;
             margin-top: -50px;

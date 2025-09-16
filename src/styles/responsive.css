@@ -1,16 +1,3 @@
-@media (min-width: 1700px) { 
-	.container {
-		max-width: var(--content_width) !important;
-	}
-	header {
-		#mainNavbar {
-			&.collapse ul.navbar-nav {
-				min-height: calc(100vh - 250px);
-			}
-		}
-	}
-}
-
 @media (min-width: 1600px) { 
     .py_3{
 	    padding-top: 6rem;
@@ -20,12 +7,21 @@
 	    margin-top: 6rem;
 	}
     :root {
-        --content_width: 1600px;
-        --content_width_small: 1200px;
-        --content_width_smaller: 830px;
-        --content_padding_large: 150px;
-        --content_padding_small: 100px;
-        --bs-fs80: 60px;
+        --content_width: 2020px;
+        --content_width_small: 1600px;
+        --content_width_smaller: 1373px;
+        --content_padding_large: 250px;
+        --content_padding_small: 125px;
+        --bs-fs80: 80px;
+        --bs-fs70: 70px;
+        --bs-fs60: 60px;
+        --bs-fs50: 50px;
+        --bs-fs40: 40px;
+        --bs-fs35: 35px;
+        --bs-fs30: 30px;
+        --bs-fs24: 24px;
+        --bs-fs20: 20px;
+        /* --bs-fs80: 60px;
         --bs-fs70: 53px;
         --bs-fs60: 48px;
         --bs-fs50: 42px;
@@ -33,7 +29,227 @@
         --bs-fs35: 32px;
         --bs-fs30: 28px;
         --bs-fs24: 22px;
-        --bs-fs20: 18px;
+        --bs-fs20: 18px; */
+    }
+    .container {
+		max-width: var(--content_width) !important;
+	}
+	header {
+		#mainNavbar {
+			&.collapse ul.navbar-nav {
+				min-height: calc(100vh - 250px);
+			}
+		}
+	}
+    .button {
+        padding: 22px 35px;
+    }
+    .theme_btn, .dark_btn, .border_btn, .text_btn {
+        svg {
+            width: 60px;
+            height: 22px;
+        }
+    }
+    .approach_sec {
+        .col_inner {
+            padding: 2.5rem;
+            padding-bottom: 70px;
+            .col_item {
+                margin-top: 7rem;
+            }
+            .arrow_btn {
+                bottom: 2rem;
+                left: 2.5rem;
+                svg {
+                    width: 60px;
+                    height: 22px;
+                }
+            }
+            .item_icon {
+                width: 100px;
+                height: 100px;
+                margin-top: -90px;
+                margin-bottom: 1.75rem;
+            }
+            &:hover {
+                .item_icon {
+                    margin-top: -110px;
+                }
+            }
+        }
+    }
+    .common_angebot_sec {
+        & .sec_body {
+            .col_item {
+                margin-bottom: 4rem;
+            }
+            .col_inner {
+                padding-bottom: 80px;
+            }
+        }
+    }
+    .ang_kontakt_sec {
+        .sec_max_width {
+            padding-right: calc(var(--content_padding_small) + 330px);
+        }
+    }
+    footer {
+        .ftr_logo_col {
+            img {
+                width: 320px;
+            }
+        }
+        .ftr_contact {
+            a {
+                .icon_style {
+                    width: 75px;
+                    height: 75px;
+                    padding: 18px;
+                }
+            }
+        }
+        .scl_links {
+            a {
+                width: 75px;
+                height: 75px;
+                padding: 18px;
+            }
+        }
+        .ftr_swiss {
+            .swiss_item {
+                padding-right: 2rem;
+                svg {
+                    width: 50px;
+                    height: 45px;
+                }
+            }
+            &:before {
+                left: 47%;
+            }
+        }
+    }
+    .owl-carousel {
+        .owl-dots {
+            .owl-dot {
+                span {
+                    width: 35px;
+                    height: 7px;
+                    margin: 7px;
+                }
+                &.active {
+                    span {
+                        width: 55px;
+                    }
+                }
+            }
+        }
+    }
+    refer_carousel, .home_refer_carousel {
+        .owl-item .item {
+            .item_img {
+                margin-bottom: 2rem;
+            }
+            &.have_more_items {
+                .item_img {
+                    height: 380px;
+                }
+            }
+        }
+        .owl-item.center .item {
+            &.have_more_items {
+                .item_img {
+                    height: 480px;
+                }
+            }
+        }
+    }
+    .refer_carousel {
+        .owl-nav {
+            top: -140px;
+            button {
+                margin: 10px;
+                span {
+                    transform: none;
+                }
+            }
+        }
+    }
+    .home_refer_carousel {
+        .owl-nav {
+            top: 420px;
+            button {
+                margin: 10px;
+                span {
+                    transform: none;
+                }
+            }
+        }
+    }
+    .testimonial_carousel {
+        .item {
+            margin: 30px;
+            margin-top: 80px;
+            .item_profile {
+                padding: 0 50px;
+                margin-top: -70px;
+                img {
+                    width: 130px;
+                    height: 130px;
+                }
+                svg {
+                    transform: scale(0.9);
+                }
+            }
+            .item_text {
+                padding: 50px;
+                .testi_by {
+                    padding-top: 1.5rem;
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 2250px) { 
+	.refer_carousel, .home_refer_carousel {
+        .owl-item .item {
+            .item_img {
+                margin-bottom: 2rem;
+            }
+            &.have_more_items {
+                .item_img {
+                    height: 420px;
+                }
+            }
+        }
+        .owl-item.center .item {
+            &.have_more_items {
+                .item_img {
+                    height: 520px;
+                }
+            }
+        }
+    }
+    .refer_carousel {
+        .owl-nav {
+            top: -140px;
+            button {
+                span {
+                    transform: none;
+                }
+            }
+        }
+    }
+    .home_refer_carousel {
+        .owl-nav {
+            top: 460px;
+            button {
+                span {
+                    transform: none;
+                }
+            }
+        }
     }
 }
 
