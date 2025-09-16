@@ -19,7 +19,13 @@ const Navbar = () => {
         <header>
             <nav className={`navbar ${isOpen ? "btn_color" : ""}`}>
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/"><img src='./images/yellow-loewenmut-logo.png' /></Link>
+                    <Link className="navbar-brand" to="/">
+                        <svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path className='circle_bg' d="M39.5 79C61.3152 79 79 61.3152 79 39.5C79 17.6848 61.3152 0 39.5 0C17.6848 0 0 17.6848 0 39.5C0 61.3152 17.6848 79 39.5 79Z" fill="inherit"/>
+                            <path className='iner_logo' d="M43.1942 59.0822H26.9316V19.8447H33.0949V52.9164H43.1853L43.1942 59.0822Z" fill="inherit"/>
+                            <path className='iner_logo' d="M52.1711 56.1119C52.1763 56.8424 51.9278 57.552 51.4681 58.1198C51.0084 58.6875 50.366 59.0781 49.6504 59.2249C48.9348 59.3717 48.1904 59.2657 47.5443 58.9249C46.8982 58.5841 46.3904 58.0296 46.1075 57.3561C45.8246 56.6826 45.7842 55.9319 45.9932 55.2319C46.2021 54.5319 46.6475 53.9262 47.2533 53.518C47.8592 53.1098 48.5878 52.9245 49.3151 52.9937C50.0423 53.0629 50.7229 53.3823 51.2409 53.8974C51.5389 54.1834 51.7752 54.5275 51.9352 54.9084C52.0952 55.2892 52.1754 55.6988 52.1711 56.1119Z" fill="inherit"/>
+                        </svg>
+                    </Link>
                     <div className='theme_switch_btn'>
                         <ThemeSwitcher />
                     </div>
