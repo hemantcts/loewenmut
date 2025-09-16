@@ -33,6 +33,13 @@
         select.selct_custom, input.srch--field {
             height: 50px;
             width: 180px;
+            padding-right: 30px;
+        }
+        fieldset.col--branch:after, fieldset.col--search:after {
+            width: 18px;
+            height: 18px;
+            right: 10px;
+            top: 15px;
         }
     }
 }
