@@ -216,14 +216,19 @@ a:hover {
     }
 }
 .theme_btn, .dark_btn, .border_btn, .text_btn {
+    position: relative;
+    padding-right: 80px;
     svg {
-        margin-left: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 10px;
         transition: .4s all;
     }
 }
 .theme_btn:hover, .dark_btn:hover, .border_btn:hover, .text_btn:hover {
     svg {
-        margin-left: 2rem;
+        margin-left: 20px;
     }
 }
 .border_btn {
@@ -466,8 +471,14 @@ header {
     .navbar-brand{
         max-width: 60px;
         transition: .4s all;
-        img {
+        svg {
             transition: .4s all;
+            path.circle_bg {
+                fill: var(--bs-themecolor);
+            }
+            path.iner_logo {
+                fill: var(--bs-themetext);
+            }
         }
     }
     .navbar-toggler {
@@ -767,9 +778,10 @@ header {
         .item_icon {
             width: 75px;
             height: 75px;
-            margin-top: -45px;
-            margin-bottom: 1.25rem;
+            top: -45px;
+            margin-bottom: -20px;
             transition: .4s all;
+            position: relative;
             svg {
                 width: 100%;
                 height: 100%;
@@ -788,7 +800,7 @@ header {
         &:hover {
             border-color: var(--bs-themecolor);
             .item_icon {
-                margin-top: -60px;
+                top: -60px;
             }
             .arrow_btn {
                 svg {
