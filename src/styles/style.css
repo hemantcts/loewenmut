@@ -62,8 +62,8 @@
 }
 :root {
     --content_width: 1600px;
-    --content_width_small: 960px;
-    --content_width_smaller: 730px;
+    --content_width_small: 1200px;
+    --content_width_smaller: 830px;
     --content_padding_large: 125px;
     --content_padding_small: 75px;
     --bs-stolzlthin: "stolzl_thin";
@@ -697,7 +697,7 @@ header {
     }
     .banner_content {
         max-width: var(--content_width_smaller);
-        padding-right: var(--content_padding_large);
+        /* padding-right: var(--content_padding_large); */
     }
 }
 
@@ -1204,8 +1204,8 @@ footer {
         margin-bottom: 1rem;
     }
     .sec_width {
-        max-width: var(--content_width_small);
-        padding: 0 var(--content_padding_small);
+        max-width: var(--content_width_smaller);
+        /* padding: 0 var(--content_padding_small); */
         margin: 0 auto;
     }
     .icon_right {

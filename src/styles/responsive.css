@@ -1,3 +1,31 @@
+@media (min-width: 1981px) { 
+    :root {
+        --content_width: 2020px;
+        --content_width_small: 1600px;
+        --content_width_smaller: 1373px;
+        --content_padding_large: 250px;
+        --content_padding_small: 125px;
+    }
+    .common_kompet_sec {
+        .icon_right {
+            right: 130px;
+        }
+        .sec_width {
+            padding: 0 var(--content_padding_small);
+        }
+    }
+}
+
+@media (max-width: 1680px) {
+    :root {
+        --content_width: 1600px;
+        --content_width_small: 960px;
+        --content_width_smaller: 730px;
+        --content_padding_large: 125px;
+        --content_padding_small: 75px;
+    }
+}
+
 @media (min-width: 1600px) { 
     .py_3{
 	    padding-top: 6rem;
@@ -7,11 +35,6 @@
 	    margin-top: 6rem;
 	}
     :root {
-        --content_width: 2020px;
-        --content_width_small: 1600px;
-        --content_width_smaller: 1373px;
-        --content_padding_large: 250px;
-        --content_padding_small: 125px;
         --bs-fs80: 80px;
         --bs-fs70: 70px;
         --bs-fs60: 60px;
@@ -42,7 +65,7 @@
 		}
 	}
     .button {
-        padding: 22px 35px;
+        padding: 18px 28px;
     }
     .theme_btn, .dark_btn, .border_btn, .text_btn {
         padding-right: 110px;
@@ -93,6 +116,11 @@
             .col_inner {
                 padding-bottom: 80px;
             }
+        }
+    }
+    .common_kompet_sec {
+        .icon_right {
+            top: -180px;
         }
     }
     .ang_kontakt_sec {
