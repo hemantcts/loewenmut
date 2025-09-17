@@ -82,7 +82,17 @@
     --bs-darkgrey: #222633;
     --bs-lightgrey: #F8F8F8;
     --bs-lineheight: 1.15;
-    --bs-fs80: 55px;
+    --bs-fs80: 70px;
+    --bs-fs70: 58px;
+    --bs-fs60: 48px;
+    --bs-fs50: 40px;
+    --bs-fs40: 35px;
+    --bs-fs35: 30px;
+    --bs-fs30: 26px;
+    --bs-fs24: 20px;
+    --bs-fs22: 18px;
+    --bs-fs20: 16px;
+    /* --bs-fs80: 55px;
     --bs-fs70: 48px;
     --bs-fs60: 45px;
     --bs-fs50: 35px;
@@ -91,7 +101,7 @@
     --bs-fs30: 24px;
     --bs-fs24: 18px;
     --bs-fs22: 16.5px;
-    --bs-fs20: 15px;
+    --bs-fs20: 15px; */
 }
 
 html,
@@ -124,10 +134,14 @@ body.body_overflow {
     background-color: var(--bs-lightgrey);
 }
 
-h1,
-h2 {
+h1 {
     font-family: var(--bs-stolzlbold);
     font-size: var(--bs-fs80);
+}
+
+h2 {
+    font-family: var(--bs-stolzlbold);
+    font-size: var(--bs-fs60);
 }
 
 h3 {
@@ -135,7 +149,6 @@ h3 {
     font-family: var(--bs-stolzlmedium);
     color: var(--bs-darkgrey);
 }
-
 p {
     font-size: inherit;
     color: inherit;
@@ -143,6 +156,10 @@ p {
 
 .fs_60 {
     font-size: var(--bs-fs60);
+}
+
+.fs_50 {
+    font-size: var(--bs-fs50);
 }
 
 a {
@@ -829,6 +846,15 @@ header {
     }
 }
 
+.kompetenzen_page {
+    .inner_banner {
+        .banner_content {
+            max-width: var(--content_width_small);
+            padding-right: var(--content_padding_large);
+        }
+    }
+}
+
 .daten_page,
 .impressum_page {
     .inner_banner {
@@ -853,27 +879,27 @@ header {
 }
 
 .info_sec {
-    h2 a {
-        position: relative;
-
-        span {
+    h2 {
+        font-size: var(--bs-fs80);
+        a {
             position: relative;
-        }
-
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            z-index: 0;
-            width: 0;
-            height: 50%;
-            background-color: var(--bs-underline);
-            transition: .4s all;
-        }
-
-        &:hover:before {
-            width: 100%;
+            span {
+                position: relative;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 0;
+                width: 0;
+                height: 50%;
+                background-color: var(--bs-underline);
+                transition: .4s all;
+            }
+            &:hover:before {
+                width: 100%;
+            }
         }
     }
 }
@@ -1067,6 +1093,10 @@ header {
     }
 }
 
+.refrenzen_sec {
+    overflow: hidden;
+}
+
 .refer_carousel {
     p {
         font-size: var(--bs-fs20);
@@ -1136,7 +1166,7 @@ header {
     .owl-nav {
         position: absolute;
         right: 0;
-        top: -100px;
+        top: -80px;
 
         button {
             background: transparent !important;
@@ -1338,11 +1368,10 @@ footer {
     .common_angbot_count:nth-child(odd) {
         background-color: var(--bs-lightgrey);
     }
-
     h2 {
         margin-bottom: 1rem;
+        font-size: var(--bs-fs80);
     }
-
     .sec_heading {
         display: flex;
         align-items: start;
@@ -1369,25 +1398,22 @@ footer {
             /* animation: identifier 0.8s 2s linear forwards; */
         }
     }
-
-
-
     .sec_body {
         max-width: var(--content_width_small);
         padding: 0 var(--content_padding_small);
         margin: 3rem auto 0;
-
         .col_item {
             margin-bottom: 3rem;
             font-size: var(--bs-fs20);
         }
-
         .col_inner {
             width: 100%;
             height: 100%;
             position: relative;
             padding-bottom: 60px;
-
+            h3 {
+                font-size: var(--bs-fs35);
+            }
             .btn_block {
                 position: absolute;
                 left: 0;
@@ -1419,7 +1445,7 @@ footer {
     }
 
     .sec_width {
-        max-width: var(--content_width_smaller);
+        max-width: var(--content_width_small);
         /* padding: 0 var(--content_padding_small); */
         margin: 0 auto;
     }
@@ -1956,43 +1982,39 @@ ul.nav-tabs {
 }
 
 .accordion-item {
-    border-radius: 30px !important;
+    border-radius: 40px !important;
     border: 0;
     background: var(--bs-lightgrey);
     margin-top: 1rem;
     overflow: hidden;
-
     .accordion-button {
-        padding: 12px 20px;
-        padding-right: 50px;
+        padding: 10px 20px;
+        padding-right: 60px;
         font-size: var(--bs-fs30);
         font-family: var(--bs-stolzlmedium);
         box-shadow: none !important;
         display: block;
         background: transparent;
         color: var(--bs-darkgrey) !important;
+        line-height: 1.35;
     }
-
     .accordion-body {
-        padding: 0 15px 20px;
-
+        padding: 0 20px 20px;
         p:last-child {
             margin-bottom: 0;
         }
     }
-
     .accordion-button::after {
         display: inline-block;
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 7px;
         border-radius: 50%;
         background: var(--bs-themecolor) url(../../public/images/icon-plus.svg) no-repeat center;
         background-size: 22px;
     }
-
     .accordion-button:not(.collapsed)::after {
         transform: none;
         background: var(--bs-themecolor) url(../../public/images/icon-minus.svg) no-repeat center;

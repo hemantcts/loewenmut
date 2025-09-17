@@ -46,8 +46,8 @@ const options = {
 return (
     <div className='container'>
         <div className='sec_flex row' data-aos='fade-up'>
-            <div className='col-lg-7'>
-                <h2 className='fs_60'>Proin gravida nibh vel velit auctor aliquet.</h2>
+            <div className='col-lg-10'>
+                <h2 className='fs_50'>Proin gravida nibh vel velit auctor aliquet.</h2>
             </div>
         </div>
         <div className='slider_wrapper refer_carousel mt-3' data-aos='fade-up'>

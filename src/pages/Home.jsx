@@ -85,8 +85,8 @@ const Home = () => {
             <section className='wi_full py_3 approach_sec' data-aos='zoom-in'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-7'>
-                            <h2 className='fs_60'>Proin gravida nibh vel velit auctor aliquet.</h2>
+                        <div className='col-lg-9'>
+                            <h2>Proin gravida nibh vel velit auctor aliquet.</h2>
                         </div>
                     </div>
                 </div>
@@ -226,11 +226,11 @@ const Home = () => {
             <section className='wi_full py_3 refrenzen_sec grey_bg'>
                 <div className='container'>
                     <div className='sec_flex row' data-aos='fade-up'>
-                        <div className='col-lg-7'>
-                            <h2 className='fs_60'>Proin gravida nibh vel velit auctor aliquet.</h2>
+                        <div className='col-lg-8'>
+                            <h2>Proin gravida nibh vel velit auctor aliquet.</h2>
                         </div>
-                        <div className='col-lg-4 ms-auto'>
-                            <div className='btn_block btn_grid'>
+                        <div className='col-lg-4 pl-lg-0'>
+                            <div className='btn_block btn_grid ms-auto'>
                                 <Link to="" className='button theme_btn'>
                                     Alle Referenzen
                                     <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -270,10 +270,10 @@ const Home = () => {
             <section className='wi_full py_3 info_sec_2' data-aos='fade-up'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-5 title_col'>
-                            <h2 className='fs_60'>Proin gravida nibh vel velit auctor</h2>
+                        <div className='col-lg-6 title_col'>
+                            <h2>Proin gravida nibh vel velit auctor</h2>
                         </div>
-                        <div className='col-lg-6 ms-auto content_col'>
+                        <div className='col-lg-6 content_col'>
                             <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
                             <div className='btn_block'>
                                 <Link to={'/'} className='button theme_btn'>Kontaktieren Sie uns
