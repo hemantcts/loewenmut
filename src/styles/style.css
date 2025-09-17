@@ -1600,6 +1600,7 @@ ul.nav-tabs {
         font-size: var(--bs-fs35);
         font-family: var(--bs-stolzlbold);
         border: 0;
+        padding: .5rem;
         position: relative;
         color: var(--bs-darkgrey);
 
