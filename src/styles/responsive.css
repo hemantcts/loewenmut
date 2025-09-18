@@ -5,13 +5,14 @@
         --content_width_smaller: 1373px;
         --content_padding_large: 250px;
         --content_padding_small: 125px;
-        --bs-fs80: 100px;
-        --bs-fs70: 80px;
-        --bs-fs60: 70px;
-        --bs-fs50: 60px;
-        --bs-fs40: 50px;
-        --bs-fs35: 45px;
-        --bs-fs30: 40px;
+        --bs-fs100: 110px;
+        --bs-fs80: 95px;
+        --bs-fs70: 85px;
+        --bs-fs60: 75px;
+        --bs-fs50: 65px;
+        --bs-fs40: 54px;
+        --bs-fs35: 48px;
+        --bs-fs30: 42px;
         --bs-fs24: 28px;
         --bs-fs20: 24px;
     }   
@@ -299,7 +300,7 @@
 
 @media (min-width: 1600px) and (max-width: 1980px) {
     :root {
-        --bs-fs80: 90px;
+        /* --bs-fs80: 90px;
         --bs-fs70: 80px;
         --bs-fs60: 70px;
         --bs-fs50: 58px;
@@ -307,7 +308,17 @@
         --bs-fs35: 40px;
         --bs-fs30: 34px;
         --bs-fs24: 26px;
-        --bs-fs20: 22px;
+        --bs-fs20: 22px; */
+        --bs-fs100: 90px;
+        --bs-fs80: 80px;
+        --bs-fs70: 70px;
+        --bs-fs60: 60px;
+        --bs-fs50: 52px;
+        --bs-fs40: 40px;
+        --bs-fs35: 35px;
+        --bs-fs30: 30px;
+        --bs-fs24: 24px;
+        --bs-fs20: 20px;
     }
     .accordion-item {
         .accordion-button {
@@ -377,6 +388,7 @@
 
 @media (min-width: 992px) and (max-width: 1199px) {
     :root {
+        --bs-fs100: 55px;
         --bs-fs80: 50px;
         --bs-fs70: 40px;
         --bs-fs60: 35px;
@@ -603,6 +615,7 @@
 
 @media (max-width: 991px) {
     :root {
+        --bs-fs100: 44px;
         --bs-fs80: 42px;
         --bs-fs70: 38px;
         --bs-fs60: 35px;
@@ -695,6 +708,7 @@
 
 @media (max-width: 767px) {
     :root {
+        --bs-fs100: 32px;
         --bs-fs80: 32px;
         --bs-fs70: 30px;
         --bs-fs60: 28px;
@@ -845,6 +859,7 @@
 
 @media (max-width: 480px) {
     :root {
+        --bs-fs100: 32px;
         --bs-fs80: 30px;
         --bs-fs70: 28px;
         --bs-fs60: 26px;

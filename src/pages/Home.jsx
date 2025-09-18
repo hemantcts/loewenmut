@@ -85,8 +85,8 @@ const Home = () => {
             <section className='wi_full py_3 approach_sec' data-aos='zoom-in'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-9'>
-                            <h2>Proin gravida nibh vel velit auctor aliquet.</h2>
+                        <div className='col-lg-7'>
+                            <h2 className='fs_50'>Proin gravida nibh vel velit auctor aliquet.</h2>
                         </div>
                     </div>
                 </div>
@@ -226,10 +226,10 @@ const Home = () => {
             <section className='wi_full py_3 refrenzen_sec grey_bg'>
                 <div className='container'>
                     <div className='sec_flex row' data-aos='fade-up'>
-                        <div className='col-lg-8'>
-                            <h2>Proin gravida nibh vel velit auctor aliquet.</h2>
+                        <div className='col-lg-7'>
+                            <h2 className='fs_50'>Proin gravida nibh vel velit auctor aliquet.</h2>
                         </div>
-                        <div className='col-lg-4 pl-lg-0'>
+                        <div className='col-lg-4 pl-lg-0 ms-auto'>
                             <div className='btn_block btn_grid ms-auto'>
                                 <Link to="" className='button theme_btn'>
                                     Alle Referenzen

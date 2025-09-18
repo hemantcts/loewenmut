@@ -82,6 +82,7 @@
     --bs-darkgrey: #222633;
     --bs-lightgrey: #F8F8F8;
     --bs-lineheight: 1.15;
+    --bs-fs100: 73px;
     --bs-fs80: 70px;
     --bs-fs70: 58px;
     --bs-fs60: 48px;
@@ -880,7 +881,7 @@ header {
 
 .info_sec {
     h2 {
-        font-size: var(--bs-fs80);
+        font-size: var(--bs-fs100);
         a {
             position: relative;
             span {
