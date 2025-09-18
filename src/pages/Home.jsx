@@ -20,7 +20,8 @@ const Home = () => {
 
     const options = {
         loop: data.length > 2 ? true : false,
-        margin: 0,
+        margin: 20,
+        autoWidth: true,   // allow our CSS item widths
         dots: false,
         nav: data.length > 2 ? true : false,
         center: data.length > 2 ? true : false,
@@ -31,9 +32,11 @@ const Home = () => {
         smartSpeed: 600,
         items: data.length,
         responsive: {
-            0: { items: 1 },
+            0: { items: 1, autoWidth: false },
             600: { items: 2 },
             1000: { items: data.length > 2 ? 3 : 2 },
+            1600: { margin: 30 },
+            2000: { margin: 40 },
         },
         // Use <span> or <button> in navText (avoid <a href="#"> to fix iPhone issue)
         navText: [

@@ -6,12 +6,13 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const Referenzen = () => {
 const data = [
-    "1", "2", "3", "4", "5"
+    "1", "2"
 ]
 
 const options = {
     loop: data.length > 2 ? true : false,
-    margin: 0,
+    margin: 20,
+    autoWidth: true,   // allow our CSS item widths
     dots: false,
     nav: data.length > 2 ? true : false,
     center: data.length > 2 ? true : false,
@@ -22,9 +23,11 @@ const options = {
     smartSpeed: 600,
     items: data.length,
     responsive: {
-        0: { items: 1 },
+        0: { items: 1, autoWidth: false },
         600: { items: 2 },
         1000: { items: data.length > 2 ? 3 : 2 },
+        1600: { margin: 30 },
+        2000: { margin: 40 },
     },
     // Use <span> or <button> in navText (avoid <a href="#"> to fix iPhone issue)
     navText: [
@@ -47,7 +50,7 @@ return (
     <div className='container'>
         <div className='sec_flex row' data-aos='fade-up'>
             <div className='col-lg-10'>
-                <h2 className='fs_50'>Proin gravida nibh vel velit auctor aliquet.</h2>
+                <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
             </div>
         </div>
         <div className='slider_wrapper refer_carousel mt-3' data-aos='fade-up'>
