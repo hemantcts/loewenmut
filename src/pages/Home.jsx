@@ -6,7 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
-    const { theme } = useTheme(); 
+    const { theme } = useTheme();
 
     const [curretTheme, setCurrentTheme] = useState('yellow');
 
@@ -54,12 +54,135 @@ const Home = () => {
             </span>`,
         ],
     };
+
+    // useEffect(() => {
+    //     function updatePaths() {
+    //         const getTop = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.left + rect.width / 2,
+    //                 y: rect.top + rect.width / 4.5
+    //             };
+    //         };
+
+    //         const getRightMobile = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.right - rect.width / 5,
+    //                 y: rect.top + rect.width / 2
+    //             };
+    //         };
+
+    //         const getBottom = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.left + rect.width / 2,
+    //                 y: rect.bottom - rect.width / 4.5
+    //             };
+    //         };
+
+    //         const getLeftMobile = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.left + rect.width / 5,
+    //                 y: rect.top + rect.width / 2
+    //             };
+    //         };
+
+    //         const getTop2 = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.right - rect.width / 2,
+    //                 y: rect.top
+    //             };
+    //         };
+
+    //         const getRight2Mobile = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.right,
+    //                 y: rect.top + rect.width / 2
+    //             };
+    //         };
+
+    //         const getBottom2 = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.right - rect.width / 2,
+    //                 y: rect.bottom
+    //             };
+    //         };
+
+    //         const getLeft2Mobile = (el) => {
+    //             const rect = el.getBoundingClientRect();
+    //             console.log(rect.top)
+    //             return {
+    //                 x: rect.left,
+    //                 y: rect.top + rect.width / 2
+    //             };
+    //         };
+
+    //         const svg = document.querySelector("#svg-lines");
+    //         const svgRect = svg.getBoundingClientRect();
+
+    //         const left = document.querySelector(".left-img");
+    //         const right = document.querySelector(".image-2");
+
+    //         const rel = (pt) => ({
+    //             x: pt.x - svgRect.left,
+    //             y: pt.y - svgRect.top
+    //         });
+
+    //         const fromTL = rel(getTop(left));
+    //         const fromBL = rel(getBottom(left));
+    //         const fromTR = rel(getTop2(right));
+    //         const fromBR = rel(getBottom2(right));
+
+    //         const fromTL2 = rel(getRightMobile(left));
+    //         const fromBL2 = rel(getLeftMobile(left));
+    //         const fromTR2 = rel(getRight2Mobile(right));
+    //         const fromBR2 = rel(getLeft2Mobile(right));
+
+
+    //         if (window.innerWidth > 575) {
+    //             document.querySelector("#chainPath").setAttribute("d",
+    //                 `M ${fromTL.x} ${fromTL.y} 
+    //             L ${fromTR.x} ${fromTR.y}
+    //             A 1 1 0 0 1 ${fromBR.x} ${fromBR.y} 
+    //             L ${fromBL.x} ${fromBL.y}
+    //             A 1 1 0 0 1 ${fromTL.x} ${fromTL.y}  `
+    //             );
+    //         }
+    //         else {
+    //             document.querySelector("#chainPath").setAttribute("d",
+    //                 `M ${fromTL2.x} ${fromTL2.y} 
+    //             L ${fromTR2.x} ${fromTR2.y}
+    //             A 1 1 0 0 1 ${fromBR2.x} ${fromBR2.y} 
+    //             L ${fromBL2.x} ${fromBL2.y}
+    //             A 1 1 0 0 1 ${fromTL2.x} ${fromTL2.y}  `
+    //             );
+    //         }
+    //     }
+
+    // }, [])
+
+
     return (
         <div className='page_content homepage'>
             <section className='banner_sec main_banner wi_full'>
                 <div className='container' data-aos='fade-up'>
                     <div className='banner_data'>
-                        {/* <img src='./images/home-banner.png' alt='#' className='w-100' /> */}
+                        
+                        <svg id="svg-lines" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none'}} xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 106 21 L 190 21" stroke="red" fill="none" stroke-width="2" />
+                        </svg>
                         <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100' />
                     </div>
                     <div className='btn_block btn_grid'>
@@ -237,15 +360,15 @@ const Home = () => {
                                 <Link to="" className='button theme_btn'>
                                     Alle Referenzen
                                     <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit"/>
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit"/>
+                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
+                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
                                     </svg>
                                 </Link>
                                 <Link to="" className='button dark_btn'>
                                     Loewenmut. kennenlernen
                                     <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit"/>
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit"/>
+                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
+                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
                                     </svg>
                                 </Link>
                             </div>
@@ -254,7 +377,7 @@ const Home = () => {
                     <div className='slider_wrapper home_refer_carousel mt-5' data-aos='fade-up'>
                         <OwlCarousel className='owl-theme' {...options}>
                             {data.map((item, index) => (
-                                <div className={`item ${data.length===2 ? 'have_two_items' : 'have_more_items'}`} key={index}>
+                                <div className={`item ${data.length === 2 ? 'have_two_items' : 'have_more_items'}`} key={index}>
                                     <Link to={'/'}>
                                         <div className='item_img'>
                                             <img src='./images/ref-1.png' alt='#' />

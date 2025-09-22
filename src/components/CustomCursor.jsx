@@ -32,8 +32,8 @@ const CustomCursor = () => {
             ref={cursorRef}
             style={{
                 position: "fixed",
-                width: "20px",
-                height: "20px",
+                width: "35px",
+                height: "35px",
                 borderRadius: "50%",
                 backgroundColor: "var(--bs-themecolor)",
                 pointerEvents: "none",
