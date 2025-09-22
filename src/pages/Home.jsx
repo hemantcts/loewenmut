@@ -55,135 +55,111 @@ const Home = () => {
         ],
     };
 
-    // useEffect(() => {
-    //     function updatePaths() {
-    //         const getTop = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.left + rect.width / 2,
-    //                 y: rect.top + rect.width / 4.5
-    //             };
-    //         };
+    useEffect(() => {
+        function updatePaths() {
+            const dot1 = (el) => {
+                const rect = el.getBoundingClientRect();
+                console.log(rect.top)
+                return {
+                    x: rect.left,
+                    y: rect.top
+                };
+            };
 
-    //         const getRightMobile = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.right - rect.width / 5,
-    //                 y: rect.top + rect.width / 2
-    //             };
-    //         };
+            const dot2 = (el) => {
+                const rect = el.getBoundingClientRect();
+                console.log(rect.top)
+                return {
+                    x: rect.right,
+                    y: rect.top
+                };
+            };
 
-    //         const getBottom = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.left + rect.width / 2,
-    //                 y: rect.bottom - rect.width / 4.5
-    //             };
-    //         };
+            const dot3 = (el) => {
+                const rect = el.getBoundingClientRect();
+                console.log(rect.top)
+                return {
+                    x: rect.left,
+                    y: rect.bottom
+                };
+            };
 
-    //         const getLeftMobile = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.left + rect.width / 5,
-    //                 y: rect.top + rect.width / 2
-    //             };
-    //         };
+            const dot4 = (el) => {
+                const rect = el.getBoundingClientRect();
+                console.log(rect.top)
+                return {
+                    x: rect.right,
+                    y: rect.bottom
+                };
+            };
 
-    //         const getTop2 = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.right - rect.width / 2,
-    //                 y: rect.top
-    //             };
-    //         };
+            const svg = document.querySelector("#svg-lines");
+            const svgRect = svg.getBoundingClientRect();
 
-    //         const getRight2Mobile = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.right,
-    //                 y: rect.top + rect.width / 2
-    //             };
-    //         };
+            const bannerVideo = document.querySelector(".banner_video");
 
-    //         const getBottom2 = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.right - rect.width / 2,
-    //                 y: rect.bottom
-    //             };
-    //         };
+            const rel = (pt) => ({
+                x: pt.x - svgRect.left,
+                y: pt.y - svgRect.top
+            });
 
-    //         const getLeft2Mobile = (el) => {
-    //             const rect = el.getBoundingClientRect();
-    //             console.log(rect.top)
-    //             return {
-    //                 x: rect.left,
-    //                 y: rect.top + rect.width / 2
-    //             };
-    //         };
+            const dot_1 = rel(dot1(bannerVideo));
+            const dot_2 = rel(dot2(bannerVideo));
+            const dot_3 = rel(dot3(bannerVideo));
+            const dot_4 = rel(dot4(bannerVideo));
 
-    //         const svg = document.querySelector("#svg-lines");
-    //         const svgRect = svg.getBoundingClientRect();
+            if (true) {
+                document.querySelector("#line1").setAttribute("d",
+                    `M ${dot_1.x - 60} ${dot_1.y - 25} 
+                    L ${dot_2.x + 60} ${dot_2.y - 25} `
+                );
 
-    //         const left = document.querySelector(".left-img");
-    //         const right = document.querySelector(".image-2");
+                document.querySelector("#line2").setAttribute("d",
+                    `M ${dot_3.x - 60} ${dot_3.y + 25} 
+                    L ${dot_4.x + 60} ${dot_4.y + 25}  `
+                );
 
-    //         const rel = (pt) => ({
-    //             x: pt.x - svgRect.left,
-    //             y: pt.y - svgRect.top
-    //         });
+                document.querySelector("#line3").setAttribute("d",
+                    `M ${dot_1.x - 25} ${dot_1.y - 60} 
+                    L ${dot_3.x - 25} ${dot_3.y + 60}  `
+                );
 
-    //         const fromTL = rel(getTop(left));
-    //         const fromBL = rel(getBottom(left));
-    //         const fromTR = rel(getTop2(right));
-    //         const fromBR = rel(getBottom2(right));
+                document.querySelector("#line4").setAttribute("d",
+                    `M ${dot_2.x + 25} ${dot_2.y - 60} 
+                    L ${dot_4.x + 25} ${dot_4.y + 60}  `
+                );
+            }
+        }
 
-    //         const fromTL2 = rel(getRightMobile(left));
-    //         const fromBL2 = rel(getLeftMobile(left));
-    //         const fromTR2 = rel(getRight2Mobile(right));
-    //         const fromBR2 = rel(getLeft2Mobile(right));
+        setTimeout(() => {
+            updatePaths();
+        }, 1000);
 
 
-    //         if (window.innerWidth > 575) {
-    //             document.querySelector("#chainPath").setAttribute("d",
-    //                 `M ${fromTL.x} ${fromTL.y} 
-    //             L ${fromTR.x} ${fromTR.y}
-    //             A 1 1 0 0 1 ${fromBR.x} ${fromBR.y} 
-    //             L ${fromBL.x} ${fromBL.y}
-    //             A 1 1 0 0 1 ${fromTL.x} ${fromTL.y}  `
-    //             );
-    //         }
-    //         else {
-    //             document.querySelector("#chainPath").setAttribute("d",
-    //                 `M ${fromTL2.x} ${fromTL2.y} 
-    //             L ${fromTR2.x} ${fromTR2.y}
-    //             A 1 1 0 0 1 ${fromBR2.x} ${fromBR2.y} 
-    //             L ${fromBL2.x} ${fromBL2.y}
-    //             A 1 1 0 0 1 ${fromTL2.x} ${fromTL2.y}  `
-    //             );
-    //         }
-    //     }
+        // Run on window resize
+        window.addEventListener("resize", updatePaths);
 
-    // }, [])
+        // Cleanup listener on unmount
+        return () => {
+            window.removeEventListener("resize", updatePaths);
+        };
+
+    }, [])
 
 
     return (
         <div className='page_content homepage'>
             <section className='banner_sec main_banner wi_full'>
                 <div className='container' data-aos='fade-up'>
-                    <div className='banner_data'>
-                        
-                        <svg id="svg-lines" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none'}} xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 106 21 L 190 21" stroke="red" fill="none" stroke-width="2" />
+                    <div className='banner_data py-5'>
+
+                        <svg id="svg-lines" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} xmlns="http://www.w3.org/2000/svg">
+                            <path id='line1' stroke="#E4E4E4" fill="none" stroke-width="1" />
+                            <path id='line2' stroke="#E4E4E4" fill="none" stroke-width="1" />
+                            <path id='line3' stroke="#E4E4E4" fill="none" stroke-width="1" />
+                            <path id='line4' stroke="#E4E4E4" fill="none" stroke-width="1" />
                         </svg>
-                        <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100' />
+                        <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100 banner_video' />
                     </div>
                     <div className='btn_block btn_grid'>
                         <Link to="/angebot" className='button theme_btn'>
