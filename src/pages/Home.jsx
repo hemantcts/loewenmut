@@ -110,30 +110,30 @@ const Home = () => {
 
             if (true) {
                 document.querySelector("#line1").setAttribute("d",
-                    `M ${dot_1.x - 60} ${dot_1.y - 25} 
-                    L ${dot_2.x + 60} ${dot_2.y - 25} `
+                    `M ${dot_1.x - 130} ${dot_1.y - 30} 
+                    L ${dot_2.x + 130} ${dot_2.y - 30} `
                 );
 
                 document.querySelector("#line2").setAttribute("d",
-                    `M ${dot_3.x - 60} ${dot_3.y + 25} 
-                    L ${dot_4.x + 60} ${dot_4.y + 25}  `
+                    `M ${dot_3.x - 130} ${dot_3.y + 30} 
+                    L ${dot_4.x + 130} ${dot_4.y + 30}  `
                 );
 
                 document.querySelector("#line3").setAttribute("d",
-                    `M ${dot_1.x - 25} ${dot_1.y - 60} 
-                    L ${dot_3.x - 25} ${dot_3.y + 60}  `
+                    `M ${dot_1.x - 30} ${dot_1.y - 130} 
+                    L ${dot_3.x - 30} ${dot_3.y + 130}  `
                 );
 
                 document.querySelector("#line4").setAttribute("d",
-                    `M ${dot_2.x + 25} ${dot_2.y - 60} 
-                    L ${dot_4.x + 25} ${dot_4.y + 60}  `
+                    `M ${dot_2.x + 30} ${dot_2.y - 130} 
+                    L ${dot_4.x + 30} ${dot_4.y + 130}  `
                 );
             }
         }
 
         setTimeout(() => {
             updatePaths();
-        }, 1000);
+        }, 1200);
 
 
         // Run on window resize
@@ -149,26 +149,59 @@ const Home = () => {
 
     return (
         <div className='page_content homepage'>
-            <section className='banner_sec main_banner wi_full'>
-                <div className='container' data-aos='fade-up'>
-                    <div className='banner_data py-5'>
+            <section className='banner_sec main_banner wi_full' style={{ position: 'relative' }}>
+                <svg id="svg-lines" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} xmlns="http://www.w3.org/2000/svg">
+                    <path id='line1' stroke="#E4E4E4" fill="none" stroke-width="1" strokeDasharray={2200} strokeDashoffset={2200} style={{
+                        animation: 'drawLeftToRight 1.2s ease 1.3s forwards',
+                    }} />
+                    <path id='line2' stroke="#E4E4E4" fill="none" stroke-width="1" strokeDasharray={2200} strokeDashoffset={2200} style={{
+                        animation: 'drawRightToLeft 1.2s ease 1.3s forwards',
+                    }} />
+                    <path id='line3' stroke="#E4E4E4" fill="none" stroke-width="1" strokeDasharray={2200} strokeDashoffset={2200} style={{
+                        animation: 'drawTopToBottom 1.2s ease 1.3s forwards',
+                    }} />
+                    <path id='line4' stroke="#E4E4E4" fill="none" stroke-width="1" strokeDasharray={2200} strokeDashoffset={2200} style={{
+                        animation: 'drawBottomToTop 1.2s ease 1.3s forwards',
+                    }} />
+                    <style>
+                        {`
+          @keyframes drawLeftToRight {
+            from { stroke-dashoffset: var(--len, 2200); }
+            to { stroke-dashoffset: 0; }
+          }
 
-                        <svg id="svg-lines" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} xmlns="http://www.w3.org/2000/svg">
-                            <path id='line1' stroke="#E4E4E4" fill="none" stroke-width="1" />
-                            <path id='line2' stroke="#E4E4E4" fill="none" stroke-width="1" />
-                            <path id='line3' stroke="#E4E4E4" fill="none" stroke-width="1" />
-                            <path id='line4' stroke="#E4E4E4" fill="none" stroke-width="1" />
-                        </svg>
+          @keyframes drawRightToLeft {
+            from { stroke-dashoffset: var(--len, -2200); }
+            to { stroke-dashoffset: 0; }
+          }
+
+          @keyframes drawTopToBottom {
+            from { stroke-dashoffset: var(--len, 2200); }
+            to { stroke-dashoffset: 0; }
+          }
+
+          @keyframes drawBottomToTop {
+            from { stroke-dashoffset: var(--len, -2200); }
+            to { stroke-dashoffset: 0; }
+          }
+        `}
+                    </style>
+                </svg>
+                <div className='container' data-aos='fade-up'>
+                    <div className='banner_data py-3'>
+
                         <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100 banner_video' />
                     </div>
                     <div className='btn_block btn_grid'>
-                        <Link to="/angebot" className='button theme_btn'>
-                            Unser Angebot
-                            <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                            </svg>
-                        </Link>
+                        <div className="theme_btn_wrap">
+                            <Link to="/angebot" className='button theme_btn'>
+                                Unser Angebot
+                                <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
+                                    <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
+                                </svg>
+                            </Link>
+                        </div>
                         <Link to="/kontakt" className='button dark_btn'>
                             Kontakt
                             <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -179,7 +212,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className='wi_full py_3 info_sec bg_theme'>
+            <section className='wi_full py_3 info_sec bg_theme cursor-dark-zone'>
                 <div className='container'>
                     <h2 data-aos='fade-up'>Gestalten Sie mit <Link to="/"><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2>
                 </div>
@@ -333,13 +366,16 @@ const Home = () => {
                         </div>
                         <div className='col-lg-4 pl-lg-0 ms-auto'>
                             <div className='btn_block btn_grid ms-auto'>
-                                <Link to="" className='button theme_btn'>
-                                    Alle Referenzen
-                                    <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                    </svg>
-                                </Link>
+                                <div className="theme_btn_wrap">
+                                    <Link to="" className='button theme_btn'>
+                                        Alle Referenzen
+                                        <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
+                                            <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
+                                        </svg>
+                                    </Link>
+                                </div>
+
                                 <Link to="" className='button dark_btn'>
                                     Loewenmut. kennenlernen
                                     <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -378,12 +414,15 @@ const Home = () => {
                         <div className='col-lg-6 content_col'>
                             <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
                             <div className='btn_block'>
-                                <Link to={'/'} className='button theme_btn'>Kontaktieren Sie uns
-                                    <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                    </svg>
-                                </Link>
+                                <div className="theme_btn_wrap">
+                                    <Link to={'/'} className='button theme_btn'>Kontaktieren Sie uns
+                                        <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
+                                            <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
+                                        </svg>
+                                    </Link>
+                                </div>
+
                             </div>
                         </div>
                     </div>

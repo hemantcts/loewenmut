@@ -49,10 +49,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ueber-uns" element={<Uberuns />} />
+          
           <Route path="/angebot" element={<Angebot />} />
-          <Route path="/angebot-detail" element={<SingleAngebot />} />
+          <Route path="/angebot/:title" element={<SingleAngebot />} />
+
           <Route path="/kompetenzen" element={<Kompetenzen />} />
-          <Route path="/kompetenzen-detail" element={<SingleKompetenzen />} />
+          <Route path="/kompetenzen/:title" element={<SingleKompetenzen />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog-detail" element={<SingleBlog />} />
           <Route path="/referenzen" element={<Referenzen />} />

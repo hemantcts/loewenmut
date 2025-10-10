@@ -183,11 +183,11 @@
             .item_profile {
                 padding: 0 50px;
                 margin-top: -70px;
-                img {
+                .img-img {
                     width: 130px;
                     height: 130px;
                 }
-                svg {
+                .svg-img {
                     transform: scale(0.9);
                 }
             }

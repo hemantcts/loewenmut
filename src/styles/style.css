@@ -572,7 +572,7 @@ header {
         border: 0;
         width: 100%;
         padding: .75rem 0;
-        background: transparent;
+        /* background: #fff; */
         transition: 0.4s;
     }
 
@@ -1324,6 +1324,7 @@ footer {
         flex-wrap: wrap;
 
         .heading_left {
+            width: 100%;
             max-width: var(--content_width_small);
             padding-right: var(--content_padding_small);
         }
@@ -1452,7 +1453,7 @@ footer {
             padding: 0 30px;
             margin-top: -50px;
 
-            img {
+            .img-img {
                 width: 100px;
                 height: 100px;
                 border-radius: 50%;
@@ -1460,7 +1461,7 @@ footer {
                 box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
             }
 
-            svg {
+            .svg-img {
                 fill: var(--bs-themecolor);
                 transform: scale(0.7);
                 margin-left: auto;
@@ -1990,4 +1991,28 @@ ul.nav-tabs {
             fill: var(--bs-themecolor);
         }
     }
+}
+
+
+/* Base item */
+.refer_carousel .item {
+  width: auto;
+  margin: 0 auto;
+}
+
+/* When only 1 item — center it */
+.refer_carousel .have_one_item {
+  width: 60% !important;
+  margin: 0 auto !important;
+}
+
+/* When 2 items — 50% each and centered */
+.refer_carousel .have_two_items {
+  width: 50% !important;
+}
+
+/* Adjust carousel container for centering */
+.refer_carousel .owl-stage {
+  display: flex;
+  justify-content: center;
 }

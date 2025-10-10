@@ -26,10 +26,10 @@ const ScrollProgressBar = () => {
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: 109,
         left: 0,
-        height: "8px",
-        width: `${scrollWidth}%`,
+        height: "10px",
+        width: `${scrollWidth + 10}%`,
         backgroundColor: 'var(--bs-themecolor)',
         zIndex: 9999,
         transition: "width 0.25s ease-out",
