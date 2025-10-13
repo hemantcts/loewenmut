@@ -61,7 +61,7 @@ const SingleAngebot = () => {
                 <React.Fragment key={index}>
                     {module?.__component === 'modules.text-module' &&
                         <section className='wi_full inner_banner'>
-                            <TitleComponent title={module?.Titel} description={module?.Beschreibung} />
+                            <TitleComponent title={module?.Titel} description={module?.Beschreibung} icon={module?.icon} />
                         </section>
                     }
                     {module?.__component === 'modules.gallery' &&
@@ -81,7 +81,16 @@ const SingleAngebot = () => {
                     }
                     {module?.__component === 'modules.references' &&
                         <section className='wi_full py_3 refrenzen_sec grey_bg'>
-                            <Referenzen references={module?.referenzens} />
+                            <div className='container'>
+                                <div className='sec_flex row' data-aos='fade-up'>
+                                    <div className='col-lg-10'>
+                                        <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
+                                    </div>
+                                </div>
+                                <div className='slider_wrapper refer_carousel mt-3' data-aos='fade-up'>
+                                    <Referenzen references={module?.referenzens} />
+                                </div>
+                            </div>
                         </section>
                     }
                     {module?.__component === 'modules.quote-bild-logo' &&

@@ -38,42 +38,52 @@ const Referenzen = ({ references }) => {
   };
 
   return (
-    <div className='container'>
-      <div className='sec_flex row' data-aos='fade-up'>
-        <div className='col-lg-10'>
-          <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
-        </div>
-      </div>
-      <div className='slider_wrapper refer_carousel mt-3' data-aos='fade-up'>
-        <OwlCarousel className='owl-theme' {...options}>
-          {data.map((item, index) => (
-            <div
-              className={`item ${
-                data.length === 2
-                  ? 'have_two_items'
-                  : data.length === 1
-                  ? 'have_one_item'
-                  : 'have_more_items'
-              }`}
-              key={index}
-            >
-              <Link to='/' className='custom_cursor_click weiterlesen_cursor_text'>
-                <div className='item_img'>
-                  <img
-                    src={`https://backend.loewenmut.ch${item?.Bild?.url}`}
-                    alt={item?.Titel || 'Bild'}
-                  />
-                </div>
-                <div className='item_text'>
-                  <h3>{item?.Titel}</h3>
-                  <p>{item?.Beschreibung}</p>
-                </div>
-              </Link>
+
+    <OwlCarousel className='owl-theme' {...options}>
+      {data.map((item, index) => (
+        <div
+          className={`item ${data.length === 2
+            ? 'have_two_items'
+            : data.length === 1
+              ? 'have_one_item'
+              : 'have_more_items'
+            }`}
+          key={index}
+        >
+          <Link to='/' className='custom_cursor_click weiterlesen_cursor_text'>
+            <div className='item_img'>
+              <img
+                src={`https://backend.loewenmut.ch${item?.Bild?.url}`}
+                alt={item?.Titel || 'Bild'}
+              />
             </div>
-          ))}
-        </OwlCarousel>
-      </div>
-    </div>
+            <div className='item_text'>
+              <h3>{item?.Titel}</h3>
+              <p>{item?.Beschreibung}</p>
+            </div>
+          </Link>
+        </div>
+      ))}
+    </OwlCarousel>
+
+
+    // <OwlCarousel className='owl-theme' {...options}>
+    //     {data.map((item, index) => (
+    //         <div className={`item ${data.length === 2 ? 'have_two_items' : 'have_more_items'}`} key={index}>
+    //             <Link to={'/'}>
+    //                 <div className='item_img'>
+    //                     <img src='./images/ref-1.png' alt='#' />
+    //                 </div>
+    //                 <div className='item_text'>
+    //                     <h3>MedZentrum Pfungen</h3>
+    //                     <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
+    //                 </div>
+    //             </Link>
+    //         </div>
+    //     ))}
+    // </OwlCarousel> 
+
+
   );
 };
 

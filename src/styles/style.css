@@ -876,6 +876,9 @@ header {
         svg {
             fill: var(--bs-themecolor);
         }
+        .svg-img {
+            fill: var(--bs-themecolor);
+        }
     }
 }
 
@@ -948,6 +951,12 @@ header {
             position: relative;
 
             svg {
+                width: 100%;
+                height: 100%;
+                fill: var(--bs-themecolor);
+            }
+
+            .svg-img {
                 width: 100%;
                 height: 100%;
                 fill: var(--bs-themecolor);
@@ -1339,6 +1348,9 @@ footer {
             transform: translateX(-50%); */
 
             svg {
+                fill: var(--bs-themecolor);
+            }
+            .svg-img {
                 fill: var(--bs-themecolor);
             }
 
@@ -1733,6 +1745,12 @@ ul.nav-tabs {
             top: -40px;
 
             svg {
+                width: 80px;
+                height: 80px;
+                fill: var(--bs-themecolor);
+            }
+
+            .svg-img {
                 width: 80px;
                 height: 80px;
                 fill: var(--bs-themecolor);
