@@ -5,6 +5,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useTheme } from '../context/ThemeContext';
 import Referenzen from '../components/Referenzen';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import ColoredSVG from '../components/ColoredSVG';
 
 const Home = () => {
     const { theme } = useTheme();
@@ -246,7 +248,8 @@ const Home = () => {
             </section>
             <section className='wi_full py_3 info_sec bg_theme cursor-dark-zone'>
                 <div className='container'>
-                    <h2 data-aos='fade-up'>{headingData?.ueberschrift}</h2>
+                    {headingData?.ueberschrift && <BlocksRenderer content={headingData?.ueberschrift} />}
+                    {/* <h2 data-aos='fade-up'>{headingData?.ueberschrift}</h2> */}
                     {/* <h2 data-aos='fade-up'>Gestalten Sie mit <Link to="/"><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2> */}
                 </div>
             </section>
@@ -265,7 +268,11 @@ const Home = () => {
                                 <div className='col-sm-6 col-lg-4 col_item' key={index}>
                                     <Link to={`/kompetenzen/${item?.slug}`} className='col_inner'>
                                         <div className='item_icon'>
-                                            <img className='svg-img' src={`https://backend.loewenmut.ch${item?.icon?.url}`} alt="" />
+                                            {/* <img className='svg-img' src={`https://backend.loewenmut.ch${item?.icon?.url}`} alt="" /> */}
+                                            <ColoredSVG
+                                                url={`https://backend.loewenmut.ch${item?.icon?.url}`}
+                                                color="inherit"
+                                            />
                                             {/* <svg width="106" height="89" viewBox="0 0 106 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M106 21.6269L89.3153 89H16.6847L0 21.6269L32.4283 37.0711L53 0L73.5717 37.0711L106 21.6269Z" fill="inherit" />
                                             </svg> */}
@@ -310,7 +317,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='slider_wrapper home_refer_carousel mt-5' data-aos='fade-up'>
-                        <Referenzen references={referenceSection?.referenzens} />
+                        {referenceSection?.referenzens && <Referenzen references={referenceSection?.referenzens} />}
                     </div>
                 </div>
             </section>
@@ -325,7 +332,7 @@ const Home = () => {
                             <div className='btn_block'>
                                 <div className="theme_btn_wrap">
                                     <Link to={lastSection?.button?.button_link} className='button theme_btn'>
-                                    {lastSection?.button?.button_text}
+                                        {lastSection?.button?.button_text}
                                         <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
                                             <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />

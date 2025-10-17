@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css';
+import ColoredSVG from '../components/ColoredSVG';
 
 const Angebot = () => {
     const [pageData, setPageData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
+
+    const isMobile = window.innerWidth < 1200;
+
 
     const getPageData = async () => {
         setIsLoading(true);
@@ -22,7 +26,7 @@ const Angebot = () => {
             console.error(error);
         } finally {
             // setTimeout(() => {
-                setIsLoading(false);
+            setIsLoading(false);
 
             // }, 1000);
         }
@@ -35,9 +39,9 @@ const Angebot = () => {
     }, [])
 
 
-    
-  const [searchParams] = useSearchParams();
-  const index = searchParams.get("i");
+
+    const [searchParams] = useSearchParams();
+    const index = searchParams.get("i");
 
     // 👇 Scroll to the right section when index changes
     useEffect(() => {
@@ -56,11 +60,41 @@ const Angebot = () => {
         }
     }, [index, pageData]);
 
+
+    const [visibleSections, setVisibleSections] = useState([]);
+
+    // useEffect(() => {
+    //     if (!pageData?.dienstleistungens) return;
+
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 const id = entry.target.getAttribute("data-id");
+    //                 console.log(id, entry.isIntersecting);
+    //                 if (entry.isIntersecting) {
+    //                     setVisibleSections((prev) => [...new Set([...prev, id])]);
+    //                 }
+    //             });
+    //         },
+    //         {
+    //             threshold: 0.1,
+    //             rootMargin: "300px 0px 0px 0px",
+    //         }
+
+    //     );
+
+    //     const sections = document.querySelectorAll(".common_angbot_count");
+    //     sections.forEach((sec) => observer.observe(sec));
+
+    //     return () => observer.disconnect();
+    // }, [pageData]);
+
+
     return (
         <div className='page_content angebot_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='banner_content' data-aos='fade-up'>
+                    <div className='banner_content' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <h1>
                             {!isLoading ? (
                                 pageData?.Titel
@@ -84,11 +118,11 @@ const Angebot = () => {
 
             <section className='common_angebot_sec'>
                 {pageData?.dienstleistungens?.map((service, index) => (
-                    <div className='wi_full py_3 common_angbot_count' id={index} key={index}>
+                    <div className='wi_full py_3 common_angbot_count' data-id={index} id={index} key={index}>
                         {/* <div className='wi_full py_3 common_angbot_count' id={service?.documentId} key={index}> */}
                         <div className='container position-relative'>
                             <div className='sec_heading'>
-                                <div className='heading_left' data-aos='fade-up'>
+                                <div className='heading_left' data-aos={!isMobile ? 'fade-up' : undefined}>
                                     <h2>
                                         {!isLoading ? (
                                             service?.Titel
@@ -104,14 +138,19 @@ const Angebot = () => {
                                         )}
                                     </p>
                                 </div>
-                                <div className='icon_right'>
-                                    <img className='svg-img' src={`https://backend.loewenmut.ch${service?.icon?.url}`} alt="" />
+                                {/* <div className='icon_right'> */}
+                                <div className={`icon_right ${visibleSections.includes(String(index)) ? "visible" : ""}`}>
+                                    <ColoredSVG
+                                        url={`https://backend.loewenmut.ch${service?.icon?.url}`}
+                                        color="inherit"
+                                    />
+                                    {/* <img className='svg-img' src={`https://backend.loewenmut.ch${service?.icon?.url}`} alt="" /> */}
                                 </div>
                             </div>
                             <div className='sec_body'>
                                 <div className='row'>
                                     {service?.kategoriens?.map((category, i) => (
-                                        <div className='col-md-6 col_item' data-aos='fade-right'>
+                                        <div key={i} className='col-md-6 col_item' data-aos={!isMobile ? 'fade-right' : undefined}>
                                             <div className='col_inner'>
                                                 <h3>
                                                     {!isLoading ? (

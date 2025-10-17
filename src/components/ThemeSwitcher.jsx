@@ -9,8 +9,10 @@ const ThemeSwitcher = () => {
 
     const changeTheme = (theme) => {
         const themeLink = document.getElementById("themeStylesheet");
+        const domain = window.location.origin;
         if (themeLink) {
-            themeLink.setAttribute("href", `${process.env.PUBLIC_URL}/styles/style_${theme}.css`);
+            themeLink.setAttribute("href", `${domain}/styles/style_${theme}.css`);
+            console.log(themeLink);
         }
         setActiveTheme(theme);
         setTheme(theme);

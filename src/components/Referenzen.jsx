@@ -50,7 +50,7 @@ const Referenzen = ({ references }) => {
             }`}
           key={index}
         >
-          <Link to='/' className='custom_cursor_click weiterlesen_cursor_text'>
+          <Link to={`/referenzen/${item?.slug}`} className='custom_cursor_click weiterlesen_cursor_text'>
             <div className='item_img'>
               <img
                 src={`https://backend.loewenmut.ch${item?.Bild?.url}`}

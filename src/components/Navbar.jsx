@@ -1,13 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { use, useEffect, useState } from 'react'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import ThemeSwitcher from './ThemeSwitcher';
+import ScrollProgressBar from './ScrollProgressBar';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [searchParams] = useSearchParams();
+    const index = searchParams.get("i");
+
     const handleToggle = () => {
         setIsOpen(!isOpen);
         document.body.classList.toggle("body_overflow"); // mimic your jQuery body toggle
     };
+    const handleToggle2 = () => {
+        setIsOpen(false);
+        document.body.classList.remove("body_overflow"); // mimic your jQuery body toggle
+    };
+
+    useEffect(() => {
+        handleToggle2()
+    }, [index]);
+
+
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const toggleDropdown = (menu, e) => {
@@ -61,6 +76,7 @@ const Navbar = () => {
                         <span class="icon-bar"></span>
                     </button>
                     <div className={`nav_overlay ${isOpen ? "show" : ""}`} onClick={handleToggle}></div>
+                    <ScrollProgressBar />
                     <div className={`collapse navbar-collapse cursor-dark-zone ${isOpen ? "show" : ""}`} id="mainNavbar">
                         <div className='menu_container'>
                             <ul className="navbar-nav">
@@ -90,7 +106,8 @@ const Navbar = () => {
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/agentur" onClick={(e) => toggleDropdown("agentur", e)}> Agentur </Link>
+                                    {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/ueber-uns" onClick={(e) => toggleDropdown("agentur", e)}> Agentur </Link> */}
+                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/ueber-uns"> Agentur </Link>
                                     <ul className={`dropdown-menu ${openDropdown === "agentur" ? "show" : ""}`}>
                                         <li><Link className="dropdown-item" to="/ueber-uns">Über uns</Link></li>
                                         <li><Link className="dropdown-item" to="/blog">Blog</Link></li>

@@ -25,12 +25,12 @@ const CustomCursor = () => {
                 if (element && (element.closest(".custom_cursor_click"))) {
                     cursorRef.current.style.width = "150px";
                     cursorRef.current.style.height = "150px";
-                    cursorRef.current.style.opacity = "0.9";
+                    // cursorRef.current.style.opacity = "0.9";
                 }
                 else{
                     cursorRef.current.style.width = "35px"; 
                     cursorRef.current.style.height = "35px";
-                    cursorRef.current.style.opacity = "1";
+                    // cursorRef.current.style.opacity = "0.9";
                 }
 
                 if (element && (element.closest(".weiterlesen_cursor_text"))) {
@@ -72,7 +72,8 @@ const CustomCursor = () => {
                 transition: "background-color 0.2s ease, width 0.4s ease, height 0.4s ease, opacity 0.4s ease", // smooth color change
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                opacity: '0.9'
             }}
         >
             <h3 style={{fontSize: 20, margin: 0}}> {cursorText} </h3>

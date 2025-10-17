@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css';
+import ColoredSVG from '../components/ColoredSVG';
 
 const Kompetenzen = () => {
 
@@ -54,6 +55,34 @@ const Kompetenzen = () => {
         }
     }, [index, pageData]);
 
+    const [visibleSections, setVisibleSections] = useState([]);
+
+    useEffect(() => {
+        if (!pageData?.kompetenzens) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.getAttribute("data-id");
+                    console.log(id, entry.isIntersecting);
+                    if (entry.isIntersecting) {
+                        setVisibleSections((prev) => [...new Set([...prev, id])]);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: "300px 0px 0px 0px",
+            }
+
+        );
+
+        const sections = document.querySelectorAll(".common_kompet_count");
+        sections.forEach((sec) => observer.observe(sec));
+
+        return () => observer.disconnect();
+    }, [pageData]);
+
     return (
         <div className='page_content kompetenzen_page'>
             <section className='wi_full inner_banner'>
@@ -78,7 +107,7 @@ const Kompetenzen = () => {
             </section>
             <section className='common_kompet_sec'>
                 {pageData?.kompetenzens?.map((skill, index) => (
-                    <div key={index} id={index} className='wi_full py_3 common_kompet_count'>
+                    <div key={index} data-id={index} id={index} className='wi_full py_3 common_kompet_count'>
                         <div className='container'>
                             <div className='sec_width' data-aos='fade-up'>
                                 <h2>{skill?.Titel}</h2>
@@ -94,10 +123,15 @@ const Kompetenzen = () => {
                                     </Link>
                                 </div>
                             </div>
-                            <div className='icon_right'>
-                                <svg width="201" height="168" viewBox="0 0 201 168" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            {/* <div className='icon_right'> */}
+                            <div className={`icon_right ${visibleSections.includes(String(index)) ? "visible" : ""}`}>
+                                <ColoredSVG
+                                    url={`https://backend.loewenmut.ch${skill?.icon?.url}`}
+                                    color="inherit"
+                                />
+                                {/* <svg width="201" height="168" viewBox="0 0 201 168" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M200.663 40.8237L169.168 168H32.068L0.573242 40.8237L61.7862 69.9769L100.618 0L139.45 69.9769L200.663 40.8237Z" fill="inherit" />
-                                </svg>
+                                </svg> */}
                             </div>
                         </div>
                     </div>
