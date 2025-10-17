@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ColoredSVG = ({ url, color }) => {
+const ColoredSVG = ({ svg, url, color }) => {
   const [svgContent, setSvgContent] = useState("");
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ColoredSVG = ({ url, color }) => {
   return (
     <div
       className="colored-svg"
-      style={{ fill: color }}
+      style={{ fill: color, height: svg?.height || '10px', width: svg?.width || '10px' }}
       dangerouslySetInnerHTML={{ __html: svgContent }}
     />
   );

@@ -63,31 +63,31 @@ const Angebot = () => {
 
     const [visibleSections, setVisibleSections] = useState([]);
 
-    // useEffect(() => {
-    //     if (!pageData?.dienstleistungens) return;
+    useEffect(() => {
+        if (!pageData?.dienstleistungens) return;
 
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 const id = entry.target.getAttribute("data-id");
-    //                 console.log(id, entry.isIntersecting);
-    //                 if (entry.isIntersecting) {
-    //                     setVisibleSections((prev) => [...new Set([...prev, id])]);
-    //                 }
-    //             });
-    //         },
-    //         {
-    //             threshold: 0.1,
-    //             rootMargin: "300px 0px 0px 0px",
-    //         }
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.getAttribute("data-id");
+                    console.log(id, entry.isIntersecting);
+                    if (entry.isIntersecting) {
+                        setVisibleSections((prev) => [...new Set([...prev, id])]);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: "300px 0px 0px 0px",
+            }
 
-    //     );
+        );
 
-    //     const sections = document.querySelectorAll(".common_angbot_count");
-    //     sections.forEach((sec) => observer.observe(sec));
+        const sections = document.querySelectorAll(".common_angbot_count");
+        sections.forEach((sec) => observer.observe(sec));
 
-    //     return () => observer.disconnect();
-    // }, [pageData]);
+        return () => observer.disconnect();
+    }, [pageData]);
 
 
     return (
@@ -141,6 +141,7 @@ const Angebot = () => {
                                 {/* <div className='icon_right'> */}
                                 <div className={`icon_right ${visibleSections.includes(String(index)) ? "visible" : ""}`}>
                                     <ColoredSVG
+                                        svg={service?.icon}
                                         url={`https://backend.loewenmut.ch${service?.icon?.url}`}
                                         color="inherit"
                                     />
