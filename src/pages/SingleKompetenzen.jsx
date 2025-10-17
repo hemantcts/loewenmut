@@ -64,7 +64,7 @@ const SingleKompetenzen = () => {
                         </section>
                     }
                     {module?.__component === 'modules.gallery' &&
-                        <section className='wi_full py_3 ang_video_sec'>
+                        <section className='wi_full py_3 ang_video_sec pt-0'>
                             <VideoSlider images={module?.Bilder} />
                         </section>
                     }
@@ -80,18 +80,16 @@ const SingleKompetenzen = () => {
                     }
                     {module?.__component === 'modules.references' &&
                         <section className='wi_full py_3 refrenzen_sec grey_bg'>
-                            <section className='wi_full py_3 refrenzen_sec grey_bg'>
-                                <div className='container'>
-                                    <div className='sec_flex row' data-aos={!isMobile ? 'fade-up' : undefined}>
-                                        <div className='col-lg-10'>
-                                            <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
-                                        </div>
-                                    </div>
-                                    <div className='slider_wrapper refer_carousel mt-3' data-aos={!isMobile ? 'fade-up' : undefined}>
-                                        <Referenzen references={module?.referenzens} />
+                            <div className='container'>
+                                <div className='sec_flex row' data-aos={!isMobile ? 'fade-up' : undefined}>
+                                    <div className='col-lg-10'>
+                                        <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
                                     </div>
                                 </div>
-                            </section>
+                                <div className='slider_wrapper refer_carousel mt-3' data-aos={!isMobile ? 'fade-up' : undefined}>
+                                    <Referenzen references={module?.referenzens} />
+                                </div>
+                            </div>
                         </section>
                     }{module?.__component === 'modules.1-2-titel-text-call-to-action' &&
                         <section className='wi_full py_3 kom_data_sec'>

@@ -229,6 +229,13 @@
         --bs-fs24: 24px;
         --bs-fs20: 20px;
     }
+    header {
+        #mainNavbar {
+            &.collapse .menu_container {
+                padding-right: 180px !important;
+            }
+        }
+    }
     .accordion-item {
         .accordion-button {
             padding: 14px 28px;

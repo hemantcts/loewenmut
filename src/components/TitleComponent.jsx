@@ -1,5 +1,5 @@
 import React from 'react'
-import Skeleton from 'react-loading-skeleton';
+// import Skeleton from 'react-loading-skeleton';
 import ColoredSVG from './ColoredSVG';
 
 const TitleComponent = ({ title, description, icon }) => {

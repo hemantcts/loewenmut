@@ -711,6 +711,7 @@ header {
             padding: 0 80px;
             overflow: auto;
             overflow-x: hidden;
+            max-width: 1000px;
         }
 
         &.collapse ul.navbar-nav {
@@ -832,7 +833,7 @@ header {
 .single_referenzen_sec,
 .error_thank_sec,
 .single_blog_sec {
-    padding-top: 130px;
+    padding-top: 150px;
     padding-bottom: 60px;
 }
 
@@ -1203,7 +1204,7 @@ footer {
     }
 
     .ftr_logo_col {
-        img {
+        img, svg.footer_logo_svg {
             width: 220px;
             margin-bottom: 2rem;
         }
@@ -1843,7 +1844,7 @@ ul.nav-tabs {
 }
 
 .kontakt_sec {
-    padding-top: 130px;
+    padding-top: 150px;
     padding-bottom: 60px;
 
     h1 {
@@ -2124,8 +2125,12 @@ ul.nav-tabs {
     justify-content: center;
 }
 
-
+path.theme_dot {
+    fill: var(--bs-themecolor);
+}
 .colored-svg {
+    width: 100% !important;
+    height: 100% !important;
     svg {
         path {
             fill: var(--bs-themecolor);

@@ -67,7 +67,7 @@ const SingleAngebot = () => {
                         </section>
                     }
                     {module?.__component === 'modules.gallery' &&
-                        <section className='wi_full py_3 ang_video_sec'>
+                        <section className='wi_full py_3 ang_video_sec pt-0'>
                             <VideoSlider images={module?.Bilder} />
                         </section>
                     }
