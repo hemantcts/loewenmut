@@ -1,13 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { use, useEffect, useState } from 'react'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import ThemeSwitcher from './ThemeSwitcher';
+import ScrollProgressBar from './ScrollProgressBar';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [searchParams] = useSearchParams();
+    const index = searchParams.get("i");
+
     const handleToggle = () => {
         setIsOpen(!isOpen);
         document.body.classList.toggle("body_overflow"); // mimic your jQuery body toggle
     };
+    const handleToggle2 = () => {
+        setIsOpen(false);
+        document.body.classList.remove("body_overflow"); // mimic your jQuery body toggle
+    };
+
+    useEffect(() => {
+        handleToggle2()
+    }, [index]);
+
+
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const toggleDropdown = (menu, e) => {
@@ -23,10 +38,28 @@ const Navbar = () => {
         document.body.classList.remove("body_overflow");
     }, [pathname]);
 
+    const [scrolled, setScrolled] = useState(false); // ✅ NEW state for scroll
+
+    // ✅ Detect scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // run once on mount
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <header>
-            <nav className={`navbar ${isOpen ? "btn_color" : ""}`}>
-                <div className="container-fluid">
+            <nav className={`navbar ${isOpen ? "btn_color" : ""}`} style={{background: scrolled ? '#fff' : 'transparent', borderBottom: scrolled ? '1px solid #E4E4E4' : 'none'}}>
+                <div className="container">
                     <Link className="navbar-brand" to="/">
                         <svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path className='circle_bg' d="M39.5 79C61.3152 79 79 61.3152 79 39.5C79 17.6848 61.3152 0 39.5 0C17.6848 0 0 17.6848 0 39.5C0 61.3152 17.6848 79 39.5 79Z" fill="inherit" />
@@ -43,7 +76,8 @@ const Navbar = () => {
                         <span class="icon-bar"></span>
                     </button>
                     <div className={`nav_overlay ${isOpen ? "show" : ""}`} onClick={handleToggle}></div>
-                    <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="mainNavbar">
+                    <ScrollProgressBar />
+                    <div className={`collapse navbar-collapse cursor-dark-zone ${isOpen ? "show" : ""}`} id="mainNavbar">
                         <div className='menu_container'>
                             <ul className="navbar-nav">
                                 {/* <li className="nav-item">
@@ -53,26 +87,27 @@ const Navbar = () => {
                                     <Link className={`nav-link dropdown-toggle ${openDropdown === "angebot" ? "show" : ""}`} to="/angebot">Unser Angebot</Link>
                                     {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "angebot" ? "show" : ""}`} to="/angebot" onClick={(e) => toggleDropdown("angebot", e)}>Unser Angebot</Link> */}
                                     <ul className={`dropdown-menu ${openDropdown === "angebot" ? "show" : ""}`}>
-                                        <li><Link className="dropdown-item" to="/angebot-detail">Branding</Link></li>
-                                        <li><Link className="dropdown-item" to="/angebot-detail">Online / Website</Link></li>
-                                        <li><Link className="dropdown-item" to="/angebot-detail">Print</Link></li>
-                                        <li><Link className="dropdown-item" to="/angebot-detail">Content</Link></li>
+                                        <li><Link className="dropdown-item" to={`/angebot?i=0`}>Branding</Link></li>
+                                        <li><Link className="dropdown-item" to={`/angebot?i=1`}>Online / Website</Link></li>
+                                        <li><Link className="dropdown-item" to={`/angebot?i=2`}>Print</Link></li>
+                                        <li><Link className="dropdown-item" to={`/angebot?i=3`}>Content</Link></li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen"> Kompetenzen </Link>
                                     {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen" onClick={(e) => toggleDropdown("kompetenzen", e)}> Kompetenzen </Link> */}
                                     <ul className={`dropdown-menu ${openDropdown === "kompetenzen" ? "show" : ""}`}>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">Marke & Design</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">Digital & Web</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">Online-Shops</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">KMU & Start-ups</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">Soziales & Non Profit</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen-detail">Immobililen & Bauwesen</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=0">Marke & Design</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=1">Digital & Web</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=2">Online-Shops</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=3">KMU & Start-ups</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=4">Soziales & Non Profit</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=5">Immobililen & Bauwesen</Link></li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/agentur" onClick={(e) => toggleDropdown("agentur", e)}> Agentur </Link>
+                                    {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/ueber-uns" onClick={(e) => toggleDropdown("agentur", e)}> Agentur </Link> */}
+                                    <Link className={`nav-link dropdown-toggle ${openDropdown === "agentur" ? "show" : ""}`} to="/ueber-uns"> Agentur </Link>
                                     <ul className={`dropdown-menu ${openDropdown === "agentur" ? "show" : ""}`}>
                                         <li><Link className="dropdown-item" to="/ueber-uns">Über uns</Link></li>
                                         <li><Link className="dropdown-item" to="/blog">Blog</Link></li>

@@ -1,105 +1,106 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Referenzen from '../components/Referenzen'
 import Testimonial from '../components/Testimonial'
 import VideoSlider from '../components/VideoSlider'
+import TitleComponent from '../components/TitleComponent'
+import TitleWithButtons from '../components/TitleWithButtons'
+import TextWithImage from '../components/TextWithImage'
+import TitleWithSideButton from '../components/TitleWithSideButton'
 
 const SingleKompetenzen = () => {
+
+    let { title } = useParams();
+    const navigate = useNavigate()
+
+    const isMobile = window.innerWidth < 1200;
+
+
+    const [modules, setModules] = useState([])
+    const [skills, setSkills] = useState([])
+    const [category, setCategory] = useState(null)
+
+
+    const getPageData = async () => {
+        const response = await fetch('https://backend.loewenmut.ch/api/kompetenzens?populate[modules][on][modules.references][populate][referenzens][populate]=Bild&populate[modules][on][modules.title-with-button-and-image][populate][Bild]=true&populate[modules][on][modules.title-with-button-and-image][populate][button]=true&populate[modules][on][modules.gallery][populate][Bilder]=true&populate[modules][on][modules.text-module][populate]=*&populate[modules][on][modules.text-with-buttons-module][populate]=*&populate[modules][on][modules.1-2-titel-text-call-to-action][populate]=*');
+        const data = await response.json();
+        console.log(data);
+
+        if (data.data) {
+            setSkills(data?.data);
+        }
+
+    }
+
+
+    useEffect(() => {
+        getPageData();
+    }, [])
+
+    useEffect(() => {
+
+        if (skills?.length > 0 && title) {
+            const matchedCategory = skills?.find((category) => category.slug === title);
+            // console.log(category);
+            if (matchedCategory) {
+                setCategory(matchedCategory);
+                setModules(matchedCategory?.modules)
+
+            } else {
+                navigate("/error"); // Redirect to trigger the catch-all error route
+            }
+        }
+
+
+    }, [skills, title]);
+
     return (
         <div className='page_content kompetezen_detail'>
-            <section className='wi_full inner_banner'>
-                <div className='container'>
-                    <div className='single_baner_data' data-aos='fade-up'>
-                        <div className='banner_content'>
-                            <h1>Marke & Design</h1>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                        </div>
-                        <div className='angebot_icon'>
-                            <svg width="279" height="233" viewBox="0 0 279 233" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M278.09 56.6186L234.409 233H44.2642L0.583984 56.6186L85.4805 97.0513L139.337 0L193.193 97.0513L278.09 56.6186Z" fill="inheirt"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className='wi_full py_3 grey_bg angebot_pdf_sec'>
-                <div className='container'>
-                    <div className='sec_max_width' data-aos='fade-up'>
-                        <h2>Sie suchen eine einfache, günstige, aber effiziente Lösung?</h2>
-                        <p>Ein lupenreines Corporate Design und Kommunikationsmassnahmen, welche die gewünschte Wirkung erzielen: Dafür halten wir für Sie standardisierte Produkte bereit. Diese passen wir mit hoher Effizienz Ihren Bedürfnissen an, um Ihnen innert nützlicher Frist und zu einem bescheidenen Budget eine saubere Lösung zu präsentieren, mit der Sie sofort loslegen können.</p>
-                        <div className='btn_block btn_grid'>
-                            <Link to="" className='button theme_btn'>
-                                Download PDF
-                                <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                    <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                </svg>
-                            </Link>
-                            <Link to="" className='button text_btn'>
-                                <span>Grundrisse
-                                <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                    <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                </svg></span>
-                            </Link>
-                            <Link to="" className='button text_btn'>
-                                <span>Plans
-                                <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                    <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                </svg></span>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className='wi_full py_3 ang_kontakt_sec'>
-                <div className='position-relative'>
-                    <div className='container'>
-                        <div className='sec_max_width' data-aos='fade-right'>
-                            <h2>Sie suchen eine herausragende, überraschende und in jeder Hinsicht stringente Lösung?</h2>
-                            <p>Eine klare Abgrenzung zu Ihren Mitbewerbenden, Botschaften, die auf dem Punkt sind, eine überraschende Inszenierung, kreative Einfälle noch und noch oder aufwendige Produktionen. Auch das können wir und sind an Ihrer Seite: Wir denken mit, begleiten Ihre Gedankengänge, hinterfragen an den richtigen Stellen und kontern, wenn nötig. Immer mit dem Anspruch, Ihnen die Werbemittel oder Kampagnen zu präsentieren, die Aufmerksamkeit schaffen, Aktionen auslösen und Ihre Kundinnen und Kunden bei der Stange halten.</p>
-                            <div className='btn_block'>
-                                <Link to="" className='button theme_btn'>
-                                    Kontakt
-                                    <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                    </svg>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <img src='./images/image-angebot.png' alt='#' className='img_pos' />
-                </div>
-            </section>
-            <section className='wi_full py_3 pt-0 ang_video_sec'>
-                <VideoSlider />
-            </section>
-            <section className='wi_full py_3 refrenzen_sec grey_bg'>
-                <Referenzen />
-            </section>
-            <section className='wi_full py_3 kom_data_sec'>
-                <div className='container' data-aos='fade-up'>
-                    <div className='row'>
-                        <div className='col-lg-6'>
-                            <h2>Proin gravida nibh vel velit auctor</h2>
-                        </div>
-                        <div className='col-lg-6 mt-4 mt-lg-0'>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                            <div className='btn_block'>
-                                <Link to="" className='button theme_btn'>
-                                    Kontaktieren Sie uns
-                                    <svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M39.9424 7.06055L32.4659 14.1211L30.9535 12.5198L36.7333 7.06055L30.9535 1.60128L32.4659 0L39.9424 7.06055Z" fill="inherit" />
-                                        <path d="M38.3375 5.95908V8.16201H0V5.95908H38.3375Z" fill="inherit" />
-                                    </svg>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {modules?.map((module, index) => (
+                <React.Fragment key={index}>
+                    {module?.__component === 'modules.text-module' &&
+                        <section className='wi_full inner_banner'>
+                            <TitleComponent title={module?.Titel} description={module?.Beschreibung} icon={module?.icon} />
+                        </section>
+                    }
+                    {module?.__component === 'modules.gallery' &&
+                        <section className='wi_full py_3 ang_video_sec'>
+                            <VideoSlider images={module?.Bilder} />
+                        </section>
+                    }
+                    {module?.__component === 'modules.text-with-buttons-module' &&
+                        <section className='wi_full py_3 grey_bg angebot_pdf_sec'>
+                            <TitleWithButtons title={module?.Titel} description={module?.Beschreibung} button={module?.button} />
+                        </section>
+                    }
+                    {module?.__component === 'modules.title-with-button-and-image' &&
+                        <section className='wi_full py_3 ang_kontakt_sec'>
+                            <TextWithImage title={module?.Titel} description={module?.Beschreibung} button={module?.button} image={module?.Bild} />
+                        </section>
+                    }
+                    {module?.__component === 'modules.references' &&
+                        <section className='wi_full py_3 refrenzen_sec grey_bg'>
+                            <section className='wi_full py_3 refrenzen_sec grey_bg'>
+                                <div className='container'>
+                                    <div className='sec_flex row' data-aos={!isMobile ? 'fade-up' : undefined}>
+                                        <div className='col-lg-10'>
+                                            <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
+                                        </div>
+                                    </div>
+                                    <div className='slider_wrapper refer_carousel mt-3' data-aos={!isMobile ? 'fade-up' : undefined}>
+                                        <Referenzen references={module?.referenzens} />
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                    }{module?.__component === 'modules.1-2-titel-text-call-to-action' &&
+                        <section className='wi_full py_3 kom_data_sec'>
+                            <TitleWithSideButton title={module?.Titel} description={module?.Beschreibung} button={module?.button} />
+                        </section>
+                    }
+                </React.Fragment>
+            ))}
+
         </div>
     )
 }

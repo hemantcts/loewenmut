@@ -1,79 +1,108 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 
 const SingleReferenzen = () => {
+
+    let { title } = useParams();
+    const navigate = useNavigate()
+
+    const isMobile = window.innerWidth < 1200;
+
+    const [modules, setModules] = useState([])
+    const [referenzen, setReferenzen] = useState(null)
+    const [referenzens, setReferenzens] = useState([])
+
+
+    const getReferenzens = async () => {
+        const response = await fetch(`https://backend.loewenmut.ch/api/referenzens?[populate][Bild][populate]=*&[populate][Bild_2][populate]=*&[populate][Referenzen_Abschnitt][populate]=*&[populate][Media][populate]=*&pagination[limit]=100&sort[0]=Titel`)
+        const data = await response.json();
+        console.log(data);
+        if (data) {
+            setReferenzens(data.data);
+        }
+    }
+
+
+    useEffect(() => {
+        getReferenzens();
+    }, [])
+
+    
+    useEffect(() => {
+
+        if (referenzens?.length > 0 && title) {
+            const matchedCategory = referenzens?.find((category) => category.slug === title);
+            // console.log(category);
+            if (matchedCategory) {
+                setReferenzen(matchedCategory);
+                setModules(matchedCategory?.modules)
+
+            } else {
+                navigate("/error"); // Redirect to trigger the catch-all error route
+            }
+        }
+
+
+    }, [referenzens, title]);
+
+
     return (
         <div className='page_content referenzen_detail'>
             <section className='wi_full single_referenzen_sec grey_bg'>
-                <div className='container' data-aos='zoom-in'>
-                    <div className='row align-items-center' data-aos='zoom-in'>
+                <div className='container' data-aos={!isMobile ? 'zoom-in' : undefined}>
+                    <div className='row align-items-center' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         <div className='col-lg-5'>
-                            <h1>Schaer Energie AG</h1>
+                            <h1>{referenzen?.Titel}</h1>
                         </div>
-                        <div className='col-lg-7'>
-                            <img src='./images/schier-mockup.png' alt='#' />
+                        <div className='col-lg-7 text-lg-end'>
+                            {referenzen?.Bild && <img src={`https://backend.loewenmut.ch${referenzen?.Bild?.url}`} alt='#' />}
                         </div>
                     </div>
                 </div>
             </section>
             <section className='wi_full mt_3 ref_zeninfo_sec'>
                 <div className='container'>
-                    <div className='row' data-aos='zoom-in'>
-                        <div className='col-md-4 col_item'>
-                            <div className='item_inner'>
-                                <h3>Kunde</h3>
-                                <p>Georges Schaer</p>
+                    <div className='row' data-aos={!isMobile ? 'zoom-in' : undefined}>
+                        {referenzen?.Referenzen_Abschnitt?.map((info, index) => (
+                            <div className='col-md-4 col_item' key={index}>
+                                <div className='item_inner'>
+                                    <h3>{info?.Titel}</h3>
+                                    <p>{info?.Beschreibung}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='col-md-4 col_item'>
-                            <div className='item_inner'>
-                                <h3>Leistungen</h3>
-                                <p>Redesign / Strategie und Konzept / Visueller Auftritt / Briefschaften / Broschüre / Magazin / Website</p>
-                            </div>
-                        </div>
-                        <div className='col-md-4 col_item'>
-                            <div className='item_inner'>
-                                <h3>Links</h3>
-                                <p><Link to={'https://www.schaer-energie.ch/'} target='_blank'>schaer-energie.ch</Link></p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
             <section className='refzen_detail_sec'>
                 <div className='wi_full py_3'>
                     <div className='container'>
-                        <div className='max_width_content' data-aos='fade-in'>
-                            <p>«schaer energie: Die Faszination, aus Sonnenlicht Strom zu machen... Wir sind zu 100 % überzeugt, dass die Zukunft den erneuerbaren Energien gehört. Sonnenenergie ist günstig, speicherbar und kann theoretisch in unbegrenzter Menge erzeugt werden.»</p>
-                            <p>Seit über 15 Jahren plant und realisiert die schaer energie AG die Umstellung auf eine eigene Solaranlage. Stressfrei. Preiswert. Termingerecht. Die neue, innovative Website mit vielen Informationen rund um das Thema Solarstrom sowie entsprechendes Filmmaterial hat Loewenmut. digital in Szene gesetzt.</p>
-                            <p>Loewenmut. hat grossen Wert auf eine stimmige und projektunterstützende Bildwelt gelegt. Die vielen kleinen Extras machen den neuen Webauftritt zu einem Gesamterlebnis, immer mit dem Ziel eine gute Basis für Neuanfragen zu schaffen. Die ansprechenden Texte richten sich an potenzielle Neukunden und streichen die kompetente, sympathische und serviceorientierte Unternehmenskultur hervor. Die neue Website ist im WordPress-CMS programmiert und mobileoptimiert.</p>
-                            <p>Haben auch Sie ein Energie-Projekt? Melden Sie sich bei uns, wir helfen Ihnen gerne, dieses für Ihre Zielgruppen sichtbar zu machen.</p>
-                            <p>Das gesamte Loewenmut. Team bedankt sich für die gute Zusammenarbeit und wünscht viel Erfolg bei der Gewinnung von potenziellen Neukunden.</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nibh vel velit auctor aliquet.</p>
-                            <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nibh vel velit auctor aliquet.</p>
-                            <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-                            <p>Nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.Nibh vel velit auctor aliquet</p>
+                        <div className='max_width_content' data-aos={!isMobile ? 'fade-in' : undefined}>
+                            {referenzen?.Referenzen_Inhalt && <BlocksRenderer content={referenzen?.Referenzen_Inhalt} />}
                         </div>
                     </div>
                 </div>
-                <div className='full_grey_sec' data-aos='zoom-in'>
+                <div className='full_grey_sec' data-aos={!isMobile ? 'zoom-in' : undefined}>
                     <div className='container text-center positon-relative'>
-                        <img src='./images/schaer-monitor.png' alt='#' />
+                        {referenzen?.Bild_2 && <img src={`https://backend.loewenmut.ch${referenzen?.Bild_2?.url}`} alt='#' />}
                     </div>
                 </div>
                 <div className='wi_full py_3 ref_images_sec'>
                     <div className='container'>
                         <div className='row align-items-center'>
-                            <div className='col-6 img_col' data-aos='fade-right'>
+                            {referenzen?.Media?.Bilder?.map((img, index) => (
+                                <div className='col-6 img_col' key={index} data-aos={isMobile ? index % 2 === 0 ? 'fade-right' : 'fade-left' : undefined}>
+                                    <img src={`https://backend.loewenmut.ch${img?.url}`} alt='#' className='w-100' />
+                                </div>
+                            ))}
+                            {/* <div className='col-6 img_col' data-aos='fade-right'>
                                 <img src='./images/schear-img-3.png' alt='#' className='w-100' />
                             </div>
                             <div className='col-6 img_col' data-aos='fade-left'>
                                 <img src='./images/schear-img-4.png' alt='#' className='w-100' />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

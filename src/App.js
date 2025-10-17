@@ -14,7 +14,7 @@ import Blog from "./pages/Blog";
 import SingleAngebot from "./pages/SingleAngebot";
 import SingleKompetenzen from "./pages/SingleKompetenzen";
 import SingleBlog from "./pages/SingleBlog";
-import Referenzen from "./pages/Referenzen";
+import ReferenzenPage from "./pages/ReferenzenPage";
 import SingleReferenzen from "./pages/SingleReferenzen";
 import Kontakt from "./pages/Kontakt";
 import Impressum from "./pages/Impressum";
@@ -39,7 +39,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <ScrollProgressBar />
+      
       <CustomCursor />
       <div className="App">
         {/* Navigation */}
@@ -49,14 +49,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ueber-uns" element={<Uberuns />} />
+          
           <Route path="/angebot" element={<Angebot />} />
-          <Route path="/angebot-detail" element={<SingleAngebot />} />
+          <Route path="/angebot/:title" element={<SingleAngebot />} />
+
           <Route path="/kompetenzen" element={<Kompetenzen />} />
-          <Route path="/kompetenzen-detail" element={<SingleKompetenzen />} />
+          <Route path="/kompetenzen/:title" element={<SingleKompetenzen />} />
+
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-detail" element={<SingleBlog />} />
-          <Route path="/referenzen" element={<Referenzen />} />
-          <Route path="/referenzen-detail" element={<SingleReferenzen />} />
+          <Route path="/blog/:title" element={<SingleBlog />} />
+
+          <Route path="/referenzen" element={<ReferenzenPage />} />
+          <Route path="/referenzen/:title" element={<SingleReferenzen />} />
+
+          {/* <Route path="/referenzen-detail" element={<SingleReferenzen />} /> */}
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschtuz" element={<Datenschutz />} />

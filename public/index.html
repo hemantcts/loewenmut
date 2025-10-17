@@ -42,3 +42,127 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
+
+<!-- 
+<script>
+    function updatePaths() {
+        const getTop = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.width / 4.5
+            };
+        };
+
+        const getRightMobile = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.right - rect.width / 5,
+                y: rect.top + rect.width / 2
+            };
+        };
+
+        const getBottom = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.bottom - rect.width / 4.5
+            };
+        };
+
+        const getLeftMobile = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.left + rect.width / 5,
+                y: rect.top + rect.width / 2
+            };
+        };
+
+        const getTop2 = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.right - rect.width / 2,
+                y: rect.top 
+            };
+        };
+
+        const getRight2Mobile = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.right,
+                y: rect.top + rect.width / 2 
+            };
+        };
+
+        const getBottom2 = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.right - rect.width / 2,
+                y: rect.bottom 
+            };
+        };
+
+        const getLeft2Mobile = (el) => {
+            const rect = el.getBoundingClientRect();
+            console.log(rect.top)
+            return {
+                x: rect.left,
+                y: rect.top + rect.width / 2 
+            };
+        };
+
+        const svg = document.querySelector("#svg-lines");
+        const svgRect = svg.getBoundingClientRect();
+
+        const left = document.querySelector(".left-img");
+        const right = document.querySelector(".image-2");
+
+        const rel = (pt) => ({
+            x: pt.x - svgRect.left,
+            y: pt.y - svgRect.top
+        });
+
+        const fromTL = rel(getTop(left));
+        const fromBL = rel(getBottom(left));
+        const fromTR = rel(getTop2(right));
+        const fromBR = rel(getBottom2(right));
+
+        const fromTL2 = rel(getRightMobile(left));
+        const fromBL2 = rel(getLeftMobile(left));
+        const fromTR2 = rel(getRight2Mobile(right));
+        const fromBR2 = rel(getLeft2Mobile(right));
+
+
+        if(window.innerWidth > 575){
+            document.querySelector("#chainPath").setAttribute("d",
+                `M ${fromTL.x} ${fromTL.y} 
+                L ${fromTR.x} ${fromTR.y}
+                A 1 1 0 0 1 ${fromBR.x} ${fromBR.y} 
+                L ${fromBL.x} ${fromBL.y}
+                A 1 1 0 0 1 ${fromTL.x} ${fromTL.y}  `
+            );
+        }
+        else{
+            document.querySelector("#chainPath").setAttribute("d",
+                `M ${fromTL2.x} ${fromTL2.y} 
+                L ${fromTR2.x} ${fromTR2.y}
+                A 1 1 0 0 1 ${fromBR2.x} ${fromBR2.y} 
+                L ${fromBL2.x} ${fromBL2.y}
+                A 1 1 0 0 1 ${fromTL2.x} ${fromTL2.y}  `
+            );
+        }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener("resize", updatePaths);
+        window.addEventListener("load", () => setTimeout(updatePaths, 100)); // allow layout to stabilize
+    });
+</script> -->

@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 const CustomCursor = () => {
     const cursorRef = useRef(null);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 992);
+    const [cursorText, setCursorText] = useState("");
 
     useEffect(() => {
         const handleResize = () => {
@@ -13,6 +14,40 @@ const CustomCursor = () => {
             if (cursorRef.current) {
                 cursorRef.current.style.left = `${e.clientX}px`;
                 cursorRef.current.style.top = `${e.clientY}px`;
+
+                const element = document.elementFromPoint(e.clientX, e.clientY);
+
+                if (element && (element.closest(".cursor-dark-zone") || element.closest(".theme_btn_wrap"))) {
+                    cursorRef.current.style.backgroundColor = "#fff"; // black
+                } else {
+                    cursorRef.current.style.backgroundColor = "var(--bs-themecolor)"; // green
+                }
+                if (element && (element.closest(".custom_cursor_click"))) {
+                    cursorRef.current.style.width = "150px";
+                    cursorRef.current.style.height = "150px";
+                    // cursorRef.current.style.opacity = "0.9";
+                }
+                else{
+                    cursorRef.current.style.width = "35px"; 
+                    cursorRef.current.style.height = "35px";
+                    // cursorRef.current.style.opacity = "0.9";
+                }
+
+                if (element && (element.closest(".mini_custom_cursor_click"))) {
+                    cursorRef.current.style.width = "80px";
+                    cursorRef.current.style.height = "80px";
+                    // cursorRef.current.style.opacity = "0.9";
+                }
+
+                if (element && (element.closest(".weiterlesen_cursor_text"))) {
+                    setCursorText("weiterlesen");
+                }
+                else if(element && (element.closest(".spielen_cursor_text"))){
+                    setCursorText("Spielen");
+                }
+                else{
+                    setCursorText("");
+                }
             }
         };
 
@@ -32,20 +67,28 @@ const CustomCursor = () => {
             ref={cursorRef}
             style={{
                 position: "fixed",
-                width: "20px",
-                height: "20px",
+                width: "35px",
+                height: "35px",
                 borderRadius: "50%",
                 backgroundColor: "var(--bs-themecolor)",
                 pointerEvents: "none",
                 transform: "translate(-50%, -50%)",
                 zIndex: 9999,
-                willChange: "transform, left, top", // ⚡ GPU hint for smoothness
+                willChange: "transform, left, top",
+                transition: "background-color 0.2s ease, width 0.4s ease, height 0.4s ease, opacity 0.4s ease", // smooth color change
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity: '0.9'
             }}
-        />
+        >
+            <h3 style={{fontSize: 20, margin: 0}}> {cursorText} </h3>
+        </div>
     );
 };
 
 export default CustomCursor;
+
 
 
 
