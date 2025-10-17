@@ -76,7 +76,7 @@ const Uberuns = () => {
                     </div>
                 </div>
             </section>
-            <section className='wi_full py_3 uber_data_sec'>
+            <section className='wi_full py_3 uber_data_sec pt-0'>
                 <div className='container'>
                     <div className='sec_content'>
                         <h2>{aboutSection2?.Titel}</h2>
@@ -84,7 +84,7 @@ const Uberuns = () => {
                     </div>
                     <div className='row justify-content-center'>
                         {aboutSection2?.Quotenbereich?.map((item, index) => (
-                            <div className='col-lg-4 col-md-6 mt-4' key={index}>
+                            <div className='col-lg-4 col-md-6' key={index}>
                                 <div className='udc_item'>
                                     <div className='udc_inner'>
                                         <div className='svg_icon'>

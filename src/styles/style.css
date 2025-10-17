@@ -327,7 +327,6 @@ a:hover {
 .border_btn:hover {
     border: 2px solid var(--bs-themecolor);
     color: var(--bs-darkgrey);
-
     &:before {
         width: 100%;
     }
