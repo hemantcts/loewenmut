@@ -4,6 +4,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const VideoSlider = ({ images }) => {
+    const isMobile = window.innerWidth < 1200;
+    
     const options = {
         loop: true,
         margin: 0,
@@ -17,7 +19,7 @@ const VideoSlider = ({ images }) => {
     };
 
     return (
-        <div className='container' data-aos='fade-up'>
+        <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
             <div className='slider_wrapper video_carousel'>
                 <OwlCarousel className='owl-theme' {...options}>
                     {images ? (images.map((image, index) => (

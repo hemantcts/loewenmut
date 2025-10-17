@@ -8,6 +8,7 @@ const SingleReferenzen = () => {
     let { title } = useParams();
     const navigate = useNavigate()
 
+    const isMobile = window.innerWidth < 1200;
 
     const [modules, setModules] = useState([])
     const [referenzen, setReferenzen] = useState(null)
@@ -50,8 +51,8 @@ const SingleReferenzen = () => {
     return (
         <div className='page_content referenzen_detail'>
             <section className='wi_full single_referenzen_sec grey_bg'>
-                <div className='container' data-aos='zoom-in'>
-                    <div className='row align-items-center' data-aos='zoom-in'>
+                <div className='container' data-aos={!isMobile ? 'zoom-in' : undefined}>
+                    <div className='row align-items-center' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         <div className='col-lg-5'>
                             <h1>{referenzen?.Titel}</h1>
                         </div>
@@ -63,7 +64,7 @@ const SingleReferenzen = () => {
             </section>
             <section className='wi_full mt_3 ref_zeninfo_sec'>
                 <div className='container'>
-                    <div className='row' data-aos='zoom-in'>
+                    <div className='row' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         {referenzen?.Referenzen_Abschnitt?.map((info, index) => (
                             <div className='col-md-4 col_item' key={index}>
                                 <div className='item_inner'>
@@ -78,12 +79,12 @@ const SingleReferenzen = () => {
             <section className='refzen_detail_sec'>
                 <div className='wi_full py_3'>
                     <div className='container'>
-                        <div className='max_width_content' data-aos='fade-in'>
+                        <div className='max_width_content' data-aos={!isMobile ? 'fade-in' : undefined}>
                             {referenzen?.Referenzen_Inhalt && <BlocksRenderer content={referenzen?.Referenzen_Inhalt} />}
                         </div>
                     </div>
                 </div>
-                <div className='full_grey_sec' data-aos='zoom-in'>
+                <div className='full_grey_sec' data-aos={!isMobile ? 'zoom-in' : undefined}>
                     <div className='container text-center positon-relative'>
                         {referenzen?.Bild_2 && <img src={`https://backend.loewenmut.ch${referenzen?.Bild_2?.url}`} alt='#' />}
                     </div>
@@ -92,7 +93,7 @@ const SingleReferenzen = () => {
                     <div className='container'>
                         <div className='row align-items-center'>
                             {referenzen?.Media?.Bilder?.map((img, index) => (
-                                <div className='col-6 img_col' key={index} data-aos={index % 2 === 0 ? 'fade-right' : 'fade-left'}>
+                                <div className='col-6 img_col' key={index} data-aos={isMobile ? index % 2 === 0 ? 'fade-right' : 'fade-left' : undefined}>
                                     <img src={`https://backend.loewenmut.ch${img?.url}`} alt='#' className='w-100' />
                                 </div>
                             ))}

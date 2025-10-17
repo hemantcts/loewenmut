@@ -5,6 +5,8 @@ import ColoredSVG from '../components/ColoredSVG'
 
 const Kontakt = () => {
 
+    const isMobile = window.innerWidth < 1200;
+
     const [pageData, setPageData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
@@ -39,7 +41,7 @@ const Kontakt = () => {
             <section className='wi_full kontakt_sec'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-5 addres_col' data-aos='fade-right'>
+                        <div className='col-lg-5 addres_col' data-aos={!isMobile ? 'fade-right' : undefined}>
                             <h1>{pageData?.Titel}</h1>
                             <p>{pageData?.Beschreibung}</p>
                             {pageData?.Info_Bereich && (
@@ -131,7 +133,7 @@ const Kontakt = () => {
                                 </div>
                             </div> */}
                         </div>
-                        <div className='col-lg-7 form_col mt-4 mt-lg-0' data-aos='fade-left'>
+                        <div className='col-lg-7 form_col mt-4 mt-lg-0' data-aos={!isMobile ? 'fade-left' : undefined}>
                             <div className='grey_bg'>
                                 <div className='subtitle'>Starten Sie jetzt Ihren Countdown</div>
                                 <h2>Wie können wir Sie unterstützen?</h2>

@@ -8,6 +8,8 @@ const SingleBlog = () => {
     let { title } = useParams();
     const navigate = useNavigate()
 
+    const isMobile = window.innerWidth < 1200;
+
 
     // const [modules, setModules] = useState([])
     const [blog, setBlog] = useState(null)
@@ -51,7 +53,7 @@ const SingleBlog = () => {
         <div className='page_content blogs_detail'>
             <section className='wi_full py_3 single_blog_sec'>
                 <div className='container'>
-                    <div className='sec_max_width' data-aos='zoom-in'>
+                    <div className='sec_max_width' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         <div className='post_date'>Insight | 15.06.25</div>
                         <h1>{blog?.Titel}</h1>
                         <p>{blog?.Beschreibung}</p>

@@ -6,6 +6,8 @@ const Datenschutz = () => {
 
     // https://backend.loewenmut.ch/api/datenschutzerklaerung
 
+    const isMobile = window.innerWidth < 1200;  
+
     const [pageData, setPageData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +39,7 @@ const Datenschutz = () => {
         <div className='page_content daten_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='banner_content' data-aos='fade-up'>
+                    <div className='banner_content' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <h1>{pageData?.Titel}</h1>
                         <p>{pageData?.Beschreibung}</p>
                     </div>
@@ -45,7 +47,7 @@ const Datenschutz = () => {
             </section>
             <section className='wi_full py_3 pt-0 daten_accordion'>
                 <div className='container'>
-                    <div className="accordion" id="accordion" data-aos='fade-up'>
+                    <div className="accordion" id="accordion" data-aos={!isMobile ? 'fade-up' : undefined}>
                         {pageData?.erweiterbare_Daten && pageData?.erweiterbare_Daten.map((item, index) => (
                             <div className="accordion-item" key={index}>
                                 <div className="accordion-header" id={`daten${index}`}>

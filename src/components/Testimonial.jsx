@@ -4,6 +4,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const Testimonial = ({ quotesData }) => {
+    const isMobile = window.innerWidth < 1200;
+    
     const options = {
         loop: true,
         margin: 0,
@@ -22,7 +24,7 @@ const Testimonial = ({ quotesData }) => {
     };
 
     return (
-        <div className='container' data-aos='zoom-in'>
+        <div className='container' data-aos={!isMobile ? 'zoom-in' : undefined}>
             <div className='slider_wrapper testimonial_carousel'>
                 <OwlCarousel className='owl-theme' {...options}>
                     {quotesData?.map((quote, index) => (

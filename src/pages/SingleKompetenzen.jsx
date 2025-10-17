@@ -13,6 +13,8 @@ const SingleKompetenzen = () => {
     let { title } = useParams();
     const navigate = useNavigate()
 
+    const isMobile = window.innerWidth < 1200;
+
 
     const [modules, setModules] = useState([])
     const [skills, setSkills] = useState([])
@@ -80,12 +82,12 @@ const SingleKompetenzen = () => {
                         <section className='wi_full py_3 refrenzen_sec grey_bg'>
                             <section className='wi_full py_3 refrenzen_sec grey_bg'>
                                 <div className='container'>
-                                    <div className='sec_flex row' data-aos='fade-up'>
+                                    <div className='sec_flex row' data-aos={!isMobile ? 'fade-up' : undefined}>
                                         <div className='col-lg-10'>
                                             <h2 className='fs_50 mb-4'>Proin gravida nibh vel velit auctor aliquet.</h2>
                                         </div>
                                     </div>
-                                    <div className='slider_wrapper refer_carousel mt-3' data-aos='fade-up'>
+                                    <div className='slider_wrapper refer_carousel mt-3' data-aos={!isMobile ? 'fade-up' : undefined}>
                                         <Referenzen references={module?.referenzens} />
                                     </div>
                                 </div>

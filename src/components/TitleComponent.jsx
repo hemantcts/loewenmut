@@ -3,10 +3,12 @@ import Skeleton from 'react-loading-skeleton';
 import ColoredSVG from './ColoredSVG';
 
 const TitleComponent = ({ title, description, icon }) => {
+    const isMobile = window.innerWidth < 1200;
+    
     return (
         <div className='container'>
             <div className='single_baner_data'>
-                <div className='banner_content' data-aos='fade-up'>
+                <div className='banner_content' data-aos={!isMobile ? 'fade-up' : undefined}>
                     <h1>{title}</h1>
                     <p>{description}</p>
                 </div>

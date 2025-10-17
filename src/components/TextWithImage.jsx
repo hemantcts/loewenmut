@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TextWithImage = ({title, description, button, image }) => {
+    const isMobile = window.innerWidth < 1200;
+    
     return (
         <div className='position-relative'>
             <div className='container'>
-                <div className='sec_max_width' data-aos='fade-right'>
+                <div className='sec_max_width' data-aos={!isMobile ? 'fade-right' : undefined}>
                     <h2>{title}</h2>
                     <p>{description}</p>
                     <div className='btn_block'>

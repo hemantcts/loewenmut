@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TitleWithSideButton = ({ title, description, button }) => {
+    const isMobile = window.innerWidth < 1200;
+    
     return (
-        <div className='container' data-aos='fade-up'>
+        <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
             <div className='row'>
                 <div className='col-lg-6'>
                     <h2>{title}</h2>

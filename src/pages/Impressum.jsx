@@ -5,6 +5,8 @@ import ColoredSVG from '../components/ColoredSVG';
 
 const Impressum = () => {
 
+    const isMobile = window.innerWidth < 1200;
+
     const [pageData, setPageData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
@@ -36,7 +38,7 @@ const Impressum = () => {
         <div className='page_content impressum_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='banner_content' data-aos='fade-up'>
+                    <div className='banner_content' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <h1>{pageData?.Titel}</h1>
                         <p>{pageData?.Beschreibung}</p>
                         <div className='wat_address'>
@@ -48,7 +50,7 @@ const Impressum = () => {
             </section>
             <section className='wi_full py_3 pt-0 imp_copyright'>
                 <div className='grey_bg wi_full pt-3 pb-3'>
-                    <div className='container' data-aos='fade-up'>
+                    <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <div className="row">
                             {pageData?.Info_Bereich?.map((item, index) => {
                                 const title = item?.Titel;
@@ -128,7 +130,7 @@ const Impressum = () => {
                         </div> */}
                     </div>
                 </div>
-                <div className='container mt_3' data-aos='fade-up'>
+                <div className='container mt_3' data-aos={!isMobile ? 'fade-up' : undefined}>
                     {pageData?.Inhalt && <BlocksRenderer content={pageData?.Inhalt} />}
                     {/* <h2 className='mt_3'>Copyright</h2>
                     <p>Sämtliche Texte, Bilder, Grafiken und sonstige Inhalte dieser Website sowie deren Anordnung sind durch das Urheberrecht und andere Schutzgesetze geschützt. Es darf keine Vervielfältigung, Veränderung oder Verwendung der genannten Inhalte in anderen elektronischen oder gedruckten Publikationen ohne vorherige Zustimmung durch die Loewenmut Punkt GmbH erfolgen.</p>

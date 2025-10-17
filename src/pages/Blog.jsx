@@ -5,6 +5,8 @@ import ColoredSVG from '../components/ColoredSVG'
 
 const Blog = () => {
 
+    const isMobile = window.innerWidth < 1200;
+
     const [bannerSection, setBannerSection] = useState([])
     const [lastSection, setLastSection] = useState([])
     const [blogs, setBlogs] = useState([])
@@ -69,7 +71,7 @@ const Blog = () => {
         <div className='page_content blog_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='single_baner_data' data-aos='zoom-in'>
+                    <div className='single_baner_data' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         <div className='banner_content'>
                             <h1>{bannerSection?.Titel}</h1>
                             <p>{bannerSection?.Beschreibung}</p>
@@ -100,7 +102,7 @@ const Blog = () => {
                             <button className='nav-link' id='tab_4' data-bs-toggle='tab' data-bs-target='#tab4' type='button' role='tab'>Projekte</button>
                         </li>
                     </ul> */}
-                    <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos='zoom-in'>
+                    <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         {categories.map((type, index) => {
                             const isActive = index === activeIndex;
 
@@ -124,7 +126,7 @@ const Blog = () => {
                             );
                         })}
                     </ul>
-                    <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos='fade-up'>
+                    <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <div className='tab-pane fade show active' role='tabpanel' aria-labelledby='tab_1'>
                             <AllReferenzens referenzens={blogs} selectedCategory={selectedCategory} type={'blogs'} />
                             <div className='btn_block'>
@@ -141,7 +143,7 @@ const Blog = () => {
                 </div>
             </section >
             <section className='wi_full py_3 kom_data_sec'>
-                <div className='container' data-aos='fade-up'>
+                <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
                     <div className='row'>
                         <div className='col-lg-6'>
                             <h2>{lastSection?.Titel}</h2>

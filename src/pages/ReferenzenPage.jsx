@@ -4,6 +4,8 @@ import AllReferenzens from '../components/AllReferenzens'
 
 const ReferenzenPage = () => {
 
+    const isMobile = window.innerWidth < 1200;
+
     // https://backend.loewenmut.ch/api/referenzen-page?populate[Titel_Button_Abschnitt][populate][button][populate]=*
 
     const [pageData, setPageData] = useState([])
@@ -101,7 +103,7 @@ const ReferenzenPage = () => {
         <div className='page_content referenzen_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='banner_content' data-aos='zoom-in'>
+                    <div className='banner_content' data-aos={!isMobile ? 'zoom-in' : undefined}>
                         <h1>{pageData?.Titel}</h1>
                     </div>
                 </div>
@@ -109,7 +111,7 @@ const ReferenzenPage = () => {
             <section className='wi_full referenzen_sec'>
                 <div className='container'>
                     <div className='data_filters'>
-                        <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos='zoom-in'>
+                        <ul className='nav nav-tabs' id='myTab' role='tablist' data-aos={!isMobile ? 'zoom-in' : undefined}>
                             {categories.map((type, index) => {
                                 const isActive = index === activeIndex;
 
@@ -150,7 +152,7 @@ const ReferenzenPage = () => {
                             </fieldset>
                         </div>
                     </div>
-                    <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos='fade-up'>
+                    <div className='tab-content mt-4 blog_list_wrapper' id='myTabContent' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <div className='tab-pane fade show active' role='tabpanel' aria-labelledby='tab_1'>
                             <AllReferenzens referenzens={referenzens} selectedCategory={selectedCategory} selectedFilteredReferenzen={selectedFilteredReferenzen} />
                             <div className='btn_block'>
@@ -168,7 +170,7 @@ const ReferenzenPage = () => {
             </section >
 
             <section className='wi_full py_3 kom_data_sec'>
-                <div className='container' data-aos='fade-up'>
+                <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
                     <div className='row'>
                         <div className='col-lg-6'>
                             <h2>{lastSection?.Titel}</h2>

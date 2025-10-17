@@ -33,6 +33,12 @@ const CustomCursor = () => {
                     // cursorRef.current.style.opacity = "0.9";
                 }
 
+                if (element && (element.closest(".mini_custom_cursor_click"))) {
+                    cursorRef.current.style.width = "80px";
+                    cursorRef.current.style.height = "80px";
+                    // cursorRef.current.style.opacity = "0.9";
+                }
+
                 if (element && (element.closest(".weiterlesen_cursor_text"))) {
                     setCursorText("weiterlesen");
                 }

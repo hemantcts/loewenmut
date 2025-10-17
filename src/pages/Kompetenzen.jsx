@@ -6,6 +6,8 @@ import ColoredSVG from '../components/ColoredSVG';
 
 const Kompetenzen = () => {
 
+    const isMobile = window.innerWidth < 1200;
+
     const [pageData, setPageData] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
@@ -87,7 +89,7 @@ const Kompetenzen = () => {
         <div className='page_content kompetenzen_page'>
             <section className='wi_full inner_banner'>
                 <div className='container'>
-                    <div className='banner_content' data-aos='fade-up'>
+                    <div className='banner_content' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <h1>
                             {!isLoading ? (
                                 pageData?.Titel
@@ -109,7 +111,7 @@ const Kompetenzen = () => {
                 {pageData?.kompetenzens?.map((skill, index) => (
                     <div key={index} data-id={index} id={index} className='wi_full py_3 common_kompet_count'>
                         <div className='container'>
-                            <div className='sec_width' data-aos='fade-up'>
+                            <div className='sec_width' data-aos={!isMobile ? 'fade-up' : undefined}>
                                 <h2>{skill?.Titel}</h2>
                                 <h3>{skill?.Untertitel}</h3>
                                 <p>{skill?.Beschreibung}</p>
@@ -126,6 +128,7 @@ const Kompetenzen = () => {
                             {/* <div className='icon_right'> */}
                             <div className={`icon_right ${visibleSections.includes(String(index)) ? "visible" : ""}`}>
                                 <ColoredSVG
+                                    svg={skill?.icon}
                                     url={`https://backend.loewenmut.ch${skill?.icon?.url}`}
                                     color="inherit"
                                 />

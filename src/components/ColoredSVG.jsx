@@ -14,7 +14,7 @@ const ColoredSVG = ({ svg, url, color }) => {
   return (
     <div
       className="colored-svg"
-      style={{ fill: color, height: svg?.height || '10px', width: svg?.width || '10px' }}
+      style={{ fill: color, height: 'auto', width: 'auto' }}
       dangerouslySetInnerHTML={{ __html: svgContent }}
     />
   );

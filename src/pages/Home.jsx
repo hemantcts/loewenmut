@@ -11,6 +11,8 @@ import ColoredSVG from '../components/ColoredSVG';
 const Home = () => {
     const { theme } = useTheme();
 
+    const isMobile = window.innerWidth < 1200;
+
     const [curretTheme, setCurrentTheme] = useState('yellow');
 
     // useEffect(() => {
@@ -221,7 +223,7 @@ const Home = () => {
         `}
                     </style>
                 </svg>
-                <div className='container' data-aos='fade-up'>
+                <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
                     <div className='banner_data py-3'>
 
                         <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100 banner_video' />
@@ -249,11 +251,11 @@ const Home = () => {
             <section className='wi_full py_3 info_sec bg_theme cursor-dark-zone'>
                 <div className='container'>
                     {headingData?.ueberschrift && <BlocksRenderer content={headingData?.ueberschrift} />}
-                    {/* <h2 data-aos='fade-up'>{headingData?.ueberschrift}</h2> */}
-                    {/* <h2 data-aos='fade-up'>Gestalten Sie mit <Link to="/"><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2> */}
+                    {/* <h2 data-aos={!isMobile ? 'fade-up' : undefined}>{headingData?.ueberschrift}</h2> */}
+                    {/* <h2 data-aos={!isMobile ? 'fade-up' : undefined}>Gestalten Sie mit <Link to="/"><span>Loewenmut.</span></Link><br /> die digitale Zukunft Ihres Unternehmens.</h2> */}
                 </div>
             </section>
-            <section className='wi_full py_3 approach_sec' data-aos='zoom-in'>
+            <section className='wi_full py_3 approach_sec' data-aos={!isMobile ? 'zoom-in' : undefined}>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-7'>
@@ -296,7 +298,7 @@ const Home = () => {
             </section>
             <section className='wi_full py_3 refrenzen_sec grey_bg'>
                 <div className='container'>
-                    <div className='sec_flex row' data-aos='fade-up'>
+                    <div className='sec_flex row' data-aos={!isMobile ? 'fade-up' : undefined}>
                         <div className='col-lg-7'>
                             <h2 className='fs_50'>{referenceSection?.Titel}</h2>
                         </div>
@@ -316,12 +318,12 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='slider_wrapper home_refer_carousel mt-5' data-aos='fade-up'>
+                    <div className='slider_wrapper home_refer_carousel mt-5' data-aos={!isMobile ? 'fade-up' : undefined}>
                         {referenceSection?.referenzens && <Referenzen references={referenceSection?.referenzens} />}
                     </div>
                 </div>
             </section>
-            <section className='wi_full py_3 info_sec_2' data-aos='fade-up'>
+            <section className='wi_full py_3 info_sec_2' data-aos={!isMobile ? 'fade-up' : undefined}>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-6 title_col'>
