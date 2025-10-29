@@ -16,6 +16,11 @@
             }
         }
     }
+    ul.nav-tabs {
+        li+li {
+            margin-left: 50px;
+        }
+    }
     .button {
         padding: 18px 13px;
     }
@@ -30,6 +35,17 @@
     .theme_btn:hover, .dark_btn:hover, .border_btn:hover, .text_btn:hover {
         svg {
             margin-left: 28px;
+        }
+    }
+    .back_to_home_btn {
+        padding-left: 100px;
+        svg {
+            left: 20px;
+        }
+    }
+    .back_to_home_btn:hover {
+        svg {
+            left: 30px;
         }
     }
     .approach_sec {
@@ -277,6 +293,17 @@
     .theme_btn, .dark_btn, .border_btn, .text_btn {
         padding-right: 100px !important;
     }
+    .back_to_home_btn {
+        padding-left: 100px !important;
+        svg {
+            left: 20px;
+        }
+    }
+    .back_to_home_btn:hover {
+        svg {
+            left: 30px;
+        }
+    }
     .common_kompet_sec {
         .icon_right {
             right: 130px;
@@ -414,6 +441,15 @@
             padding-right: 50px;
         }
     }
+    .common_angebot_sec {
+        .sec_heading {
+            .icon_right {
+                svg {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
@@ -509,9 +545,19 @@
     .border_btn,
     .text_btn {
         padding-right: 60px;
-
         svg {
             width: 25px;
+        }
+    }
+    .back_to_home_btn {
+        padding-left: 60px;
+        svg {
+            left: 10px;
+        }
+    }
+    .back_to_home_btn:hover {
+        svg {
+            left: 20px;
         }
     }
 
@@ -583,6 +629,18 @@
             }
         }
     }
+    .common_angebot_sec {
+        .sec_heading {
+            .icon_right {
+                width: 100%;
+                text-align: left;
+                svg {
+                    width: 130px;
+                    height: 120px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 991px) {
@@ -608,6 +666,9 @@
     }
     .theme_btn, .dark_btn, .border_btn, .text_btn {
         padding-right: 60px;
+    }
+    .back_to_home_btn {
+        padding-left: 60px;
     }
     header {
         .container-fluid {
@@ -643,13 +704,24 @@
         }
     }
     .single_baner_data {
+        position: relative;
+        h1 {
+            padding: 20px 120px 20px 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
         .angebot_icon {
-            width: 100%;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 10px;
+            top: 0;
             text-align: center;
-
             svg {
-                width: 180px;
-                height: auto;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain;
             }
         }
     }
@@ -724,6 +796,11 @@
             margin-right: 0;
         }
     }
+    ul.nav-tabs {
+        li+li {
+            margin-left: 20px;
+        }
+    }
     .banner_sec,
     .inner_banner,
     .single_referenzen_sec,
@@ -762,13 +839,11 @@
     .common_kompet_count {
         padding-top: 50px;
         padding-bottom: 50px;
-
         .icon_right {
-            top: -100px;
-
+            top: -90px;
             svg {
-                width: 70px;
-                height: 55px;
+                width: 100px;
+                height: 85px;
             }
         }
     }
@@ -777,7 +852,6 @@
             .icon_right {
                 width: 100%;
                 text-align: left;
-
                 svg {
                     width: 130px;
                     height: 120px;
@@ -921,6 +995,11 @@
             }
         }
     }
+    ul.nav-tabs {
+        li+li {
+            margin-left: 5px;
+        }
+    }
     .select-search {
         flex-direction: column;
         width: 100%;
@@ -928,6 +1007,16 @@
         select.selct_custom,
         input.srch--field {
             width: 100%;
+        }
+    }
+    .common_kompet_count {
+        .icon_right {
+            top: -80px;
+            right: 5px;
+            svg {
+                width: 80px;
+                height: 65px;
+            }
         }
     }
 }

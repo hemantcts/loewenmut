@@ -251,19 +251,16 @@ a:hover {
     transition: .3s all;
 }
 
-.theme_btn,
-.theme_btn:hover {
+.theme_btn, .theme_btn:hover, .back_to_home_btn, .back_to_home_btn:hover {
     background-color: var(--bs-themecolor);
     color: var(--bs-darkgrey);
     border: 0;
-
     svg {
         fill: var(--bs-darkgrey);
     }
 }
 
-.dark_btn,
-.dark_btn:hover {
+.dark_btn, .dark_btn:hover {
     background-color: var(--bs-darkgrey);
     color: #fff;
 
@@ -294,6 +291,23 @@ a:hover {
 .text_btn:hover {
     svg {
         margin-left: 20px;
+    }
+}
+
+.back_to_home_btn {
+    position: relative;
+    padding-left: 80px;
+    svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15px;
+        transition: .4s all;
+    }
+}
+.back_to_home_btn:hover {
+    svg {
+        left: 22px;
     }
 }
 
@@ -487,9 +501,13 @@ header ul,
 footer ul,
 ul.nav-tabs {
     padding: 0;
-
     li {
         list-style: none;
+    }
+}
+ul.nav-tabs {
+    li+li {
+        margin-left: 40px;
     }
 }
 
@@ -1372,18 +1390,15 @@ footer {
     .common_angbot_count:nth-child(odd) {
         background-color: var(--bs-lightgrey);
     }
-
     h2 {
         margin-bottom: 1rem;
         font-size: var(--bs-fs80);
     }
-
     .sec_heading {
         display: flex;
         align-items: start;
         flex-wrap: wrap;
         justify-content: space-between;
-
         .heading_left {
             width: 100%;
             max-width: var(--content_width_small);
@@ -1391,26 +1406,18 @@ footer {
         }
 
         .icon_right {
-            /* width: calc(100% - var(--content_width_small)); */
+            width: calc(100% - var(--content_width_small));
             text-align: right;
-
             transform: translate(-350%, -200%) scale(0.1);
             opacity: 0;
             transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-
             /* animation: identifier 0.8s 0s ease-out forwards; */
-
-
-
             svg {
                 fill: var(--bs-themecolor);
             }
-
             .svg-img {
                 fill: var(--bs-themecolor);
             }
-
-
         }
 
         .icon_right.visible {

@@ -226,7 +226,7 @@ const Home = () => {
                 <div className='container' data-aos={!isMobile ? 'fade-up' : undefined}>
                     <div className='banner_data py-3'>
 
-                        <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted className='w-100 banner_video' />
+                        <video src={`./videos/logo_video_${curretTheme}.mp4`} autoPlay loop muted="" playsinline="" preload="auto" className='w-100 banner_video' />
                     </div>
                     <div className='btn_block btn_grid'>
                         <div className="theme_btn_wrap">
