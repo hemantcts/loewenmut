@@ -2192,24 +2192,29 @@ path.theme_dot {
 .cky-notice .cky-title {
     font-family: "stolzl_medium";
     font-weight: 500 !important;
-    font-size: var(--bs-fs24);
+    font-size: var(--bs-fs30) !important;
 }
 .cky-notice-des p {
     font-family: "stolzl_light";
     font-size: var(--bs-fs20) !important;
 }
 button.cky-btn.cky-btn-customize {
-    text-decoration: underline;
-    font-family: "stolzl_book";
-    font-weight: 500 !important;
-    font-size: var(--bs-fs24);
+    text-decoration: underline !important;
     border: 0 !important;
     background: transparent;
 }
 button.cky-btn.cky-btn-accept {
-    font-family: "stolzl_book";
-    font-weight: 500 !important;
-    font-size: var(--bs-fs24);
-    padding: 12px 20px;
+    padding: 10px 17px;
     line-height: 1.5;
+}
+button.cky-btn.cky-btn-customize, button.cky-btn.cky-btn-accept {
+    font-family: "stolzl_book" !important;
+    font-weight: 500 !important;
+    font-size: var(--bs-fs22) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+button.cky-btn.cky-btn-customize:hover, button.cky-btn.cky-btn-accept:hover {
+    opacity: 1 !important;
 }

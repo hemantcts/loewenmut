@@ -641,6 +641,16 @@
             }
         }
     }
+    .angebot_page {
+        .common_angbot_count {
+            .sec_heading {
+                flex-wrap: wrap-reverse;
+                .icon_right {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 991px) {
@@ -820,9 +830,13 @@
     }
     .common_angebot_sec {
         .sec_body {
+            padding: 0;
+            margin-top: 1rem;
+            .col_item {
+                margin-bottom: 2rem;
+            }
             .col_inner {
                 padding-bottom: 0;
-
                 .btn_block {
                     position: unset;
                 }
@@ -853,7 +867,7 @@
                 width: 100%;
                 text-align: left;
                 svg {
-                    width: 130px;
+                    width: 100px;
                     height: 120px;
                 }
             }
