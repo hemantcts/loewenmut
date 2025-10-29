@@ -891,6 +891,9 @@
             font-size: 16px;
         }
     }
+    .cky-notice-btn-wrapper {
+        margin-top: 0 !important;
+    }
 }
 
 @media (min-width: 601px) {
