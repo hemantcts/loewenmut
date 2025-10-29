@@ -2184,3 +2184,32 @@ path.theme_dot {
         align-items: center;
     }
 }
+
+.cky-consent-container .cky-consent-bar {
+    background: var(--bs-themecolor) !important;
+    border-color: var(--bs-themecolor) !important;
+}
+.cky-notice .cky-title {
+    font-family: "stolzl_medium";
+    font-weight: 500 !important;
+    font-size: var(--bs-fs24);
+}
+.cky-notice-des p {
+    font-family: "stolzl_light";
+    font-size: var(--bs-fs20) !important;
+}
+button.cky-btn.cky-btn-customize {
+    text-decoration: underline;
+    font-family: "stolzl_book";
+    font-weight: 500 !important;
+    font-size: var(--bs-fs24);
+    border: 0 !important;
+    background: transparent;
+}
+button.cky-btn.cky-btn-accept {
+    font-family: "stolzl_book";
+    font-weight: 500 !important;
+    font-size: var(--bs-fs24);
+    padding: 12px 20px;
+    line-height: 1.5;
+}
