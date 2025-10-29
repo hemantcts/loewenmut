@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ColoredSVG = ({ svg, url, color }) => {
+const ColoredSVG = ({ url, color }) => {
   const [svgContent, setSvgContent] = useState("");
 
   useEffect(() => {

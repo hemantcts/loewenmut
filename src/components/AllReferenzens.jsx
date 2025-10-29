@@ -5,7 +5,7 @@ const AllReferenzens = ({ referenzens, selectedCategory, selectedFilteredReferen
 
     const filteredReferenzens = referenzens?.filter(ref => {
         const matchCategory = selectedCategory.value
-            ? ref?.dienstleistungen?.Titel === selectedCategory.value
+            ? ref?.dienstleistungen?.Titel === selectedCategory.value || ref?.Kategorie === selectedCategory.value
             : true;
 
         const matchBranch = selectedFilteredReferenzen

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import ColoredSVG from '../components/ColoredSVG'
 
 const Uberuns = () => {
 
@@ -47,7 +48,8 @@ const Uberuns = () => {
                             <p>{bannerData?.Beschreibung}</p>
                         </div>
                         <div className='angebot_icon'>
-                            <img className='svg-img' src={`https://backend.loewenmut.ch${bannerData?.icon?.url}`} alt="" />
+                            {/* <img className='svg-img' src={`https://backend.loewenmut.ch${bannerData?.icon?.url}`} alt="" /> */}
+                            {bannerData?.icon?.url && <ColoredSVG url={`https://backend.loewenmut.ch${bannerData?.icon?.url}`} color="inherit" />}
                         </div>
                     </div>
                 </div>
@@ -61,6 +63,7 @@ const Uberuns = () => {
                     <div className='row justify-content-center'>
                         {aboutSection?.Bilder?.map((img, index) => (
                             <div className='col-6 mt-4' key={index}>
+                                {/* <ColoredSVG url={`https://backend.loewenmut.ch${img?.url}`} color="inherit" /> */}
                                 <img src={`https://backend.loewenmut.ch${img?.url}`} alt='#' className='w-100' />
                             </div>
                         ))}
@@ -88,7 +91,11 @@ const Uberuns = () => {
                                 <div className='udc_item'>
                                     <div className='udc_inner'>
                                         <div className='svg_icon'>
-                                            <img className='svg-img' src={`https://backend.loewenmut.ch${item?.icon?.url}`} alt="" />
+                                            {/* <img className='svg-img' src={`https://backend.loewenmut.ch${item?.icon?.url}`} alt="" /> */}
+                                            <ColoredSVG
+                                                url={`https://backend.loewenmut.ch${item?.icon?.url}`}
+                                                color="inherit"
+                                            />
                                         </div>
                                         <h3>{item?.Titel}</h3>
                                         <p>{item?.Beschreibung}</p>

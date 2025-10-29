@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { use, useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import ThemeSwitcher from './ThemeSwitcher';
 import ScrollProgressBar from './ScrollProgressBar';
@@ -6,21 +6,60 @@ import ScrollProgressBar from './ScrollProgressBar';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const menuContainerRef = useRef(null);
+
     const [searchParams] = useSearchParams();
     const index = searchParams.get("i");
 
     const handleToggle = () => {
+        if (!isOpen) {
+            document.body.style.overflowY = "hidden"
+        }
+        else {
+            document.body.style.overflowY = "auto"
+        }
         setIsOpen(!isOpen);
-        document.body.classList.toggle("body_overflow"); // mimic your jQuery body toggle
     };
+
+
     const handleToggle2 = () => {
+        document.body.style.overflowY = "auto"
         setIsOpen(false);
-        document.body.classList.remove("body_overflow"); // mimic your jQuery body toggle
     };
 
     useEffect(() => {
         handleToggle2()
     }, [index]);
+
+    const [pageData, setPageData] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+
+    const getPageData = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetch(
+                'https://backend.loewenmut.ch/api/kompetenzen-page?populate[kompetenzens][populate]=*'
+            );
+            const data1 = await response.json();
+            console.log(data1)
+            if (data1) {
+                setPageData(data1?.data);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            // setTimeout(() => {
+            setIsLoading(false);
+
+            // }, 1000);
+        }
+
+    }
+
+
+    useEffect(() => {
+        getPageData();
+    }, [])
 
 
 
@@ -35,7 +74,11 @@ const Navbar = () => {
 
     useEffect(() => {
         setIsOpen(false);
-        document.body.classList.remove("body_overflow");
+        document.body.style.overflowY = "auto"
+
+        if (menuContainerRef.current) {
+            menuContainerRef.current.scrollTop = 0;
+        }
     }, [pathname]);
 
     const [scrolled, setScrolled] = useState(false); // ✅ NEW state for scroll
@@ -58,7 +101,7 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className={`navbar ${isOpen ? "btn_color" : ""}`} style={{background: scrolled ? '#fff' : 'transparent', borderBottom: scrolled ? '1px solid #E4E4E4' : 'none'}}>
+            <nav className={`navbar ${isOpen ? "btn_color" : ""}`} style={{ background: scrolled ? '#fff' : 'transparent', borderBottom: scrolled ? '1px solid #E4E4E4' : 'none' }}>
                 <div className="container">
                     <Link className="navbar-brand" to="/">
                         <svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +121,7 @@ const Navbar = () => {
                     <div className={`nav_overlay ${isOpen ? "show" : ""}`} onClick={handleToggle}></div>
                     <ScrollProgressBar />
                     <div className={`collapse navbar-collapse cursor-dark-zone ${isOpen ? "show" : ""}`} id="mainNavbar">
-                        <div className='menu_container'>
+                        <div className='menu_container' ref={menuContainerRef}>
                             <ul className="navbar-nav">
                                 {/* <li className="nav-item">
                                     <Link className="nav-link active" aria-current="page" to="/">Home</Link>
@@ -97,12 +140,15 @@ const Navbar = () => {
                                     <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen"> Kompetenzen </Link>
                                     {/* <Link className={`nav-link dropdown-toggle ${openDropdown === "kompetenzen" ? "show" : ""}`} to="/kompetenzen" onClick={(e) => toggleDropdown("kompetenzen", e)}> Kompetenzen </Link> */}
                                     <ul className={`dropdown-menu ${openDropdown === "kompetenzen" ? "show" : ""}`}>
-                                        <li><Link className="dropdown-item" to="/kompetenzen?i=0">Marke & Design</Link></li>
+                                        {pageData?.kompetenzens?.map((skill, index) => (
+                                            <li><Link className="dropdown-item" to={`/kompetenzen/${skill?.slug}`}>{skill?.Titel}</Link></li>
+                                        ))}
+                                        {/* <li><Link className="dropdown-item" to="/kompetenzen?i=0">Marke & Design</Link></li>
                                         <li><Link className="dropdown-item" to="/kompetenzen?i=1">Digital & Web</Link></li>
                                         <li><Link className="dropdown-item" to="/kompetenzen?i=2">Online-Shops</Link></li>
                                         <li><Link className="dropdown-item" to="/kompetenzen?i=3">KMU & Start-ups</Link></li>
                                         <li><Link className="dropdown-item" to="/kompetenzen?i=4">Soziales & Non Profit</Link></li>
-                                        <li><Link className="dropdown-item" to="/kompetenzen?i=5">Immobililen & Bauwesen</Link></li>
+                                        <li><Link className="dropdown-item" to="/kompetenzen?i=5">Immobililen & Bauwesen</Link></li> */}
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">

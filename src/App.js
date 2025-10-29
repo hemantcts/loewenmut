@@ -24,6 +24,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Error from "./pages/Error";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import CustomCursor from "./components/CustomCursor";
+import FixedButton from "./components/FixedButton";
 
 function App() {
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <FixedButton />
       
       <CustomCursor />
       <div className="App">

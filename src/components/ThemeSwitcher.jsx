@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 
 const ThemeSwitcher = () => {
@@ -7,15 +7,39 @@ const ThemeSwitcher = () => {
     const [open, setOpen] = useState(false);
     const [activeTheme, setActiveTheme] = useState("yellow"); // default theme
 
-    const changeTheme = (theme) => {
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("selectedTheme") || "yellow";
+        setActiveTheme(savedTheme);
+        applyTheme(savedTheme);
+    }, []);
+
+    // const changeTheme = (theme) => {
+    //     const themeLink = document.getElementById("themeStylesheet");
+    //     const domain = window.location.origin;
+    //     if (themeLink) {
+    //         themeLink.setAttribute("href", `${domain}/styles/style_${theme}.css`);
+    //         console.log(themeLink);
+    //     }
+    //     setActiveTheme(theme);
+    //     setTheme(theme);
+    //     localStorage.setItem("selectedTheme", theme);
+    //     setOpen(false);
+    // };
+
+    const applyTheme = (theme) => {
         const themeLink = document.getElementById("themeStylesheet");
         const domain = window.location.origin;
         if (themeLink) {
             themeLink.setAttribute("href", `${domain}/styles/style_${theme}.css`);
-            console.log(themeLink);
         }
-        setActiveTheme(theme);
         setTheme(theme);
+    };
+
+    // ✅ Change and store theme
+    const changeTheme = (theme) => {
+        applyTheme(theme);
+        setActiveTheme(theme);
+        localStorage.setItem("selectedTheme", theme);
         setOpen(false);
     };
 

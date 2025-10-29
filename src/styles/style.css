@@ -327,6 +327,7 @@ a:hover {
 .border_btn:hover {
     border: 2px solid var(--bs-themecolor);
     color: var(--bs-darkgrey);
+
     &:before {
         width: 100%;
     }
@@ -390,6 +391,10 @@ form {
         outline: none !important;
         box-shadow: none !important;
         background-color: transparent;
+    }
+
+    .form-control:focus{
+        background-color: transparent !important;
     }
 
     textarea {
@@ -832,7 +837,7 @@ header {
 .single_referenzen_sec,
 .error_thank_sec,
 .single_blog_sec {
-    padding-top: 150px;
+    padding-top: 125px;
     padding-bottom: 60px;
 }
 
@@ -1203,7 +1208,9 @@ footer {
     }
 
     .ftr_logo_col {
-        img, svg.footer_logo_svg {
+
+        img,
+        svg.footer_logo_svg {
             width: 220px;
             margin-bottom: 2rem;
         }
@@ -1375,6 +1382,7 @@ footer {
         display: flex;
         align-items: start;
         flex-wrap: wrap;
+        justify-content: space-between;
 
         .heading_left {
             width: 100%;
@@ -1383,7 +1391,7 @@ footer {
         }
 
         .icon_right {
-            width: calc(100% - var(--content_width_small));
+            /* width: calc(100% - var(--content_width_small)); */
             text-align: right;
 
             transform: translate(-350%, -200%) scale(0.1);
@@ -2127,9 +2135,11 @@ ul.nav-tabs {
 path.theme_dot {
     fill: var(--bs-themecolor);
 }
+
 .colored-svg {
     width: 100% !important;
     height: 100% !important;
+
     svg {
         path {
             fill: var(--bs-themecolor);
@@ -2146,5 +2156,24 @@ path.theme_dot {
     to {
         transform: translate(0, 0) scale(1);
         opacity: 1;
+    }
+}
+
+.fixed_button {
+    width: 64px;
+    aspect-ratio: 1/1;
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 13px 0 #0000000D;
+    border: 0;
+
+    .colored-svg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

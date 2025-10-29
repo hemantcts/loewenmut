@@ -2,10 +2,11 @@ import React from 'react'
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import ColoredSVG from './ColoredSVG';
 
 const Testimonial = ({ quotesData }) => {
     const isMobile = window.innerWidth < 1200;
-    
+
     const options = {
         loop: true,
         margin: 0,
@@ -31,7 +32,11 @@ const Testimonial = ({ quotesData }) => {
                         <div key={index} className='item'>
                             <div className='item_profile'>
                                 <img className='img-img' src={`https://backend.loewenmut.ch${quote?.Bild?.url}`} alt='#' />
-                                <img className='svg-img' style={{width: 'unset'}} src={`https://backend.loewenmut.ch${quote?.icon?.url}`} alt='#' />
+                                {/* <img className='svg-img' style={{width: 'unset'}} src={`https://backend.loewenmut.ch${quote?.icon?.url}`} alt='#' /> */}
+                                <ColoredSVG
+                                    url={`https://backend.loewenmut.ch${quote?.icon?.url}`}
+                                    color="inherit"
+                                />
 
                                 {/* <svg className='svg-img' width="136" height="101" viewBox="0 0 136 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M127.108 44.834C121.313 39.9774 116.426 37.5468 112.435 37.5468C112.698 35.023 114.662 30.9261 118.323 25.2608C121.984 19.6044 126.343 14.8454 131.4 10.9841C131.004 6.18966 128.538 2.53274 124.006 0C114.826 2.7949 106.17 8.18922 98.0478 16.1785C89.9252 24.1677 83.5089 33.1211 78.7767 43.0388C74.0533 52.9565 71.6895 62.4388 71.6895 71.4944C71.6895 80.5501 74.5866 87.6728 80.3808 92.8627C86.1705 98.057 93.591 100.652 102.642 100.652C111.698 100.652 119.492 96.9906 126.01 89.6679C132.533 82.3496 135.794 74.2582 135.794 65.4025C135.794 56.5557 132.897 49.6995 127.108 44.834Z" fill="inherit" />

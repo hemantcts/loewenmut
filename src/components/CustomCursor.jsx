@@ -38,6 +38,14 @@ const CustomCursor = () => {
                     cursorRef.current.style.height = "80px";
                     // cursorRef.current.style.opacity = "0.9";
                 }
+                if (element && (element.closest(".buttons_custom_cursor_click"))) {
+                    cursorRef.current.style.width = "70px";
+                    cursorRef.current.style.height = "70px";
+                    cursorRef.current.style.opacity = "0.8";
+                }
+                else{
+                    cursorRef.current.style.opacity = "0.9";
+                }
 
                 if (element && (element.closest(".weiterlesen_cursor_text"))) {
                     setCursorText("weiterlesen");
